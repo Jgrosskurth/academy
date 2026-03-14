@@ -459,6 +459,12 @@ header nav .nav-tools {
   gap: 16px;
 }
 
+header nav .nav-tools .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 header nav .nav-tools a:any-link,
 header nav .nav-tools button {
   display: flex;
@@ -507,6 +513,10 @@ header nav .nav-tools .icon img {
   header nav .nav-tools {
     gap: 24px;
     flex-shrink: 0;
+  }
+
+  header nav .nav-tools .default-content-wrapper {
+    gap: 24px;
   }
 
   header nav .nav-tools a:any-link {
