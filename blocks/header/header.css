@@ -10,8 +10,8 @@
 @media (width >= 900px) {
   .nav-utility {
     display: block;
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--light-color);
+    color: var(--text-color);
   }
 
   .nav-utility-inner {
@@ -32,7 +32,7 @@
   }
 
   .nav-utility a {
-    color: var(--color-white);
+    color: var(--text-color);
     font-family: var(--heading-font-family);
     font-size: 12px;
     font-weight: 500;
@@ -52,7 +52,7 @@
   }
 
   .nav-utility-left a:first-child {
-    color: var(--color-white);
+    color: var(--text-color);
     opacity: 1;
   }
 
@@ -62,7 +62,7 @@
   }
 
   .nav-utility-right a:not(:last-child) {
-    border-right: 1px solid rgb(255 255 255 / 30%);
+    border-right: 1px solid rgb(0 0 0 / 20%);
   }
 
   /* stylelint-enable no-descending-specificity */
