@@ -92,20 +92,35 @@
   color: var(--text-color);
 }
 
-.cards-bento .cards-bento-card-body a:any-link {
-  color: var(--link-color);
+/* CTA links styled as pill buttons */
+.cards-bento .cards-bento-card-body > p:last-child > a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--heading-font-family);
   font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+  transition: var(--button-transition);
+  white-space: nowrap;
+  background-color: var(--accent-color);
+  color: var(--color-white);
 }
 
-.cards-bento .cards-bento-card-body a.button:any-link {
-  background-color: var(--background-color);
-  border-color: var(--accent-color);
-  color: var(--color-black);
+.cards-bento .cards-bento-card-body > p:last-child > a:hover {
+  background-color: var(--color-red-hover);
+  border-color: var(--color-red-hover);
 }
 
-.cards-bento .cards-bento-card-body a.button:hover {
-  background-color: var(--light-color);
+/* Light bg card: secondary style */
+.cards-bento > ul > li:nth-child(2) .cards-bento-card-body > p:last-child > a:any-link {
+  background-color: var(--accent-color);
+  color: var(--color-white);
 }
 
 /* image-only cards */

@@ -46,21 +46,56 @@
   color: var(--text-color);
 }
 
-.cards-support .cards-support-card-body a.button:any-link {
-  background-color: var(--background-color);
-  border-color: var(--accent-color);
+/* CTA row */
+.cards-support .cards-support-card-body > p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* All CTA links styled as pill buttons */
+.cards-support .cards-support-card-body > p:last-child > a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+  transition: var(--button-transition);
+  white-space: nowrap;
+}
+
+/* First CTA = primary (red filled) */
+.cards-support .cards-support-card-body > p:last-child > a:first-child {
+  background-color: var(--accent-color);
+  color: var(--color-white);
+}
+
+.cards-support .cards-support-card-body > p:last-child > a:first-child:hover {
+  background-color: var(--color-red-hover);
+  border-color: var(--color-red-hover);
+}
+
+/* Additional CTAs = secondary (light gray bg, red outlined) */
+/* stylelint-disable no-descending-specificity -- secondary CTA after primary hover */
+.cards-support .cards-support-card-body > p:last-child > a:nth-child(n+2) {
+  background-color: var(--light-color);
   color: var(--color-black);
 }
 
-.cards-support .cards-support-card-body a.button:hover {
-  background-color: var(--light-color);
+.cards-support .cards-support-card-body > p:last-child > a:nth-child(n+2):hover {
+  background-color: var(--color-grey-border);
+  border-color: var(--color-red-hover);
 }
 
-.cards-support .cards-support-card-body a:not(.button):any-link {
-  color: var(--link-color);
-  font-family: var(--heading-font-family);
-  font-size: var(--button-font-size);
-}
+/* stylelint-enable no-descending-specificity */
 
 @media (width >= 900px) {
   .cards-support > ul {

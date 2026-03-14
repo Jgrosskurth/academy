@@ -361,6 +361,11 @@ main > .section.hero-brand-container {
   }
 }
 
+/* Columns-feature section — light gray background */
+main > .section.columns-feature-container {
+  background-color: var(--light-color);
+}
+
 /* section metadata variants */
 main .section.light,
 main .section.highlight {

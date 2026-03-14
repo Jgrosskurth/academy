@@ -40,14 +40,31 @@
   line-height: 0;
 }
 
-.columns-feature a.button:any-link {
+/* CTA links styled as pill buttons */
+.columns-feature a.button:any-link,
+.columns-feature > div > div:not(.columns-feature-img-col) > p > a:only-child {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+  transition: var(--button-transition);
+  white-space: nowrap;
   background-color: var(--accent-color);
-  border-color: transparent;
   color: var(--color-white);
 }
 
-.columns-feature a.button:hover {
+.columns-feature a.button:hover,
+.columns-feature > div > div:not(.columns-feature-img-col) > p > a:only-child:hover {
   background-color: var(--color-red-hover);
+  border-color: var(--color-red-hover);
 }
 
 .columns-feature ul {

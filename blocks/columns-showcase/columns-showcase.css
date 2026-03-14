@@ -50,25 +50,61 @@
   line-height: 0;
 }
 
-.columns-showcase a.button:any-link {
+/* CTA row */
+.columns-showcase > div > div:not(.columns-showcase-img-col) > p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* All CTA links styled as pill buttons */
+.columns-showcase a.button:any-link,
+.columns-showcase > div > div:not(.columns-showcase-img-col) > p:last-child > a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--heading-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  line-height: 1;
+  text-decoration: none;
+  border: 2px solid var(--accent-color);
+  cursor: pointer;
+  transition: var(--button-transition);
+  white-space: nowrap;
+}
+
+/* First CTA = primary (red filled) */
+.columns-showcase a.button:any-link,
+.columns-showcase > div > div:not(.columns-showcase-img-col) > p:last-child > a:first-child {
   background-color: var(--accent-color);
-  border-color: transparent;
   color: var(--color-white);
 }
 
-.columns-showcase a.button:hover {
+.columns-showcase a.button:hover,
+.columns-showcase > div > div:not(.columns-showcase-img-col) > p:last-child > a:first-child:hover {
   background-color: var(--color-red-hover);
+  border-color: var(--color-red-hover);
 }
 
-.columns-showcase a.button.secondary:any-link {
-  background-color: var(--background-color);
-  border-color: var(--accent-color);
+/* Additional CTAs = secondary (light gray bg, red outlined) */
+/* stylelint-disable no-descending-specificity -- secondary CTA after primary hover */
+.columns-showcase a.button.secondary:any-link,
+.columns-showcase > div > div:not(.columns-showcase-img-col) > p:last-child > a:nth-child(n+2) {
+  background-color: var(--light-color);
   color: var(--color-black);
 }
 
-.columns-showcase a.button.secondary:hover {
-  background-color: var(--light-color);
+.columns-showcase a.button.secondary:hover,
+.columns-showcase > div > div:not(.columns-showcase-img-col) > p:last-child > a:nth-child(n+2):hover {
+  background-color: var(--color-grey-border);
+  border-color: var(--color-red-hover);
 }
+
+/* stylelint-enable no-descending-specificity */
 
 @media (width >= 900px) {
   .columns-showcase > div {
