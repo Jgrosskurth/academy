@@ -1,19 +1,19 @@
+/* Cards Promo — promotional offer cards (Tire Offers) */
 .cards-promo > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
 .cards-promo > ul > li {
-  border: 1px solid #dadada;
   background-color: var(--background-color);
-}
-
-.cards-promo .cards-promo-card-body {
-  margin: 16px;
+  border: 1px solid var(--color-grey-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .cards-promo .cards-promo-card-image {
@@ -24,4 +24,59 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+}
+
+.cards-promo .cards-promo-card-body {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-promo .cards-promo-card-body h4 {
+  font-family: var(--heading-font-family);
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 4px;
+  color: var(--text-color);
+}
+
+.cards-promo .cards-promo-card-body h5 {
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.cards-promo .cards-promo-card-body h6 {
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 4px;
+  color: var(--text-color);
+}
+
+.cards-promo .cards-promo-card-body p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.43;
+  color: var(--text-color);
+}
+
+.cards-promo .cards-promo-card-body a:any-link {
+  color: var(--link-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--button-font-size);
+  text-decoration: none;
+}
+
+.cards-promo .cards-promo-card-body a:hover {
+  color: var(--link-hover-color);
+}
+
+@media (width >= 900px) {
+  .cards-promo > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

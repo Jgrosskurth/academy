@@ -1,10 +1,13 @@
+/* Columns Showcase — content + image (Sustainability) */
 .columns-showcase > div {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 
 .columns-showcase img {
   width: 100%;
+  display: block;
 }
 
 .columns-showcase > div > div {
@@ -15,15 +18,58 @@
   order: 0;
 }
 
-.columns-showcase > div > .columns-showcase-img-col img {
-  display: block;
+.columns-showcase h4 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.columns-showcase h6 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xs);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.columns-showcase p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.43;
+  color: var(--text-color);
+}
+
+.columns-showcase a.button:any-link {
+  background-color: var(--accent-color);
+  border-color: transparent;
+  color: var(--color-white);
+}
+
+.columns-showcase a.button:hover {
+  background-color: var(--color-red-hover);
+}
+
+.columns-showcase a.button.secondary:any-link {
+  background-color: var(--background-color);
+  border-color: var(--accent-color);
+  color: var(--color-black);
+}
+
+.columns-showcase a.button.secondary:hover {
+  background-color: var(--light-color);
 }
 
 @media (width >= 900px) {
   .columns-showcase > div {
+    flex-direction: row;
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    gap: 48px;
   }
 
   .columns-showcase > div > div {

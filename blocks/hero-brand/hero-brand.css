@@ -1,3 +1,8 @@
+/* Hero Brand — full-width hero with background image overlay */
+.hero-brand-container {
+  padding: 0;
+}
+
 .hero-brand-container .hero-brand-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,33 +10,27 @@
 
 .hero-brand {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 400px;
   padding: 40px 24px;
-  min-height: 300px;
+  overflow: hidden;
 }
 
-.hero-brand h1,
-.hero-brand h2,
-.hero-brand h3,
-.hero-brand h4,
-.hero-brand h5,
-.hero-brand h6,
-.hero-brand p {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
-}
-
-.hero-brand.no-image * {
-  color: var(--text-color);
+.hero-brand > div {
+  display: flex;
+  flex-direction: column-reverse;
+  max-width: var(--section-max-width);
+  margin: 0 auto;
+  width: 100%;
+  gap: 24px;
 }
 
 .hero-brand picture {
   position: absolute;
   z-index: -1;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
 }
 
 .hero-brand img {
@@ -40,8 +39,103 @@
   height: 100%;
 }
 
+/* gradient overlay for text readability */
+.hero-brand::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgb(0 0 0 / 55%) 0%, rgb(0 0 0 / 30%) 50%, transparent 100%);
+}
+
+.hero-brand h1,
+.hero-brand h2,
+.hero-brand h3,
+.hero-brand h4,
+.hero-brand h5,
+.hero-brand h6 {
+  color: var(--color-white);
+  margin-top: 0;
+}
+
+.hero-brand h1 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.hero-brand p {
+  color: var(--color-white);
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.43;
+  max-width: 600px;
+}
+
+/* hero CTA buttons */
+.hero-brand .button-wrapper {
+  margin: 8px 0;
+}
+
+.hero-brand a.button:any-link {
+  font-family: var(--heading-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  line-height: 1;
+}
+
+.hero-brand a.button.primary:any-link {
+  background-color: var(--accent-color);
+  border-color: transparent;
+  color: var(--color-white);
+}
+
+.hero-brand a.button.primary:hover {
+  background-color: var(--color-red-hover);
+}
+
+.hero-brand a.button.secondary:any-link {
+  background-color: transparent;
+  border-color: var(--accent-color);
+  color: var(--color-white);
+}
+
+.hero-brand a.button.secondary:hover {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+.hero-brand.no-image::after {
+  display: none;
+}
+
+.hero-brand.no-image h1,
+.hero-brand.no-image h2,
+.hero-brand.no-image p {
+  color: var(--text-color);
+}
+
 @media (width >= 900px) {
   .hero-brand {
-    padding: 40px 32px;
+    min-height: 700px;
+    padding: 80px 32px;
+  }
+
+  .hero-brand > div {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero-brand > div > div:first-child {
+    flex: 0 0 55%;
+  }
+
+  .hero-brand h1 {
+    font-size: 48px;
+    margin-bottom: 40px;
   }
 }

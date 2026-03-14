@@ -1,27 +1,69 @@
+/* Cards Support — support link cards (Find the Essentials) */
 .cards-support > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
 .cards-support > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-}
-
-.cards-support .cards-support-card-body {
-  margin: 16px;
+  background-color: var(--light-color);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cards-support .cards-support-card-image {
-  line-height: 0;
+  display: none;
 }
 
-.cards-support > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.cards-support .cards-support-card-body h6 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xs);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.cards-support .cards-support-card-body h5 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 400;
+  line-height: 1.33;
+  color: var(--text-color);
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.cards-support .cards-support-card-body p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.43;
+  color: var(--text-color);
+}
+
+.cards-support .cards-support-card-body a.button:any-link {
+  background-color: var(--background-color);
+  border-color: var(--accent-color);
+  color: var(--color-black);
+}
+
+.cards-support .cards-support-card-body a.button:hover {
+  background-color: var(--light-color);
+}
+
+.cards-support .cards-support-card-body a:not(.button):any-link {
+  color: var(--link-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--button-font-size);
+}
+
+@media (width >= 900px) {
+  .cards-support > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -1,19 +1,16 @@
+/* Cards Category — side-by-side link cards (Automotive / Motorcycle) */
 .cards-category > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
 .cards-category > ul > li {
-  border: 1px solid #dadada;
   background-color: var(--background-color);
-}
-
-.cards-category .cards-category-card-body {
-  margin: 16px;
+  overflow: hidden;
 }
 
 .cards-category .cards-category-card-image {
@@ -22,6 +19,55 @@
 
 .cards-category > ul > li img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+.cards-category .cards-category-card-body {
+  padding: 24px;
+}
+
+.cards-category .cards-category-card-body h5 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 400;
+  line-height: 1.33;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--text-color);
+}
+
+.cards-category .cards-category-card-body p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.cards-category .cards-category-card-body a:any-link {
+  color: var(--link-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--button-font-size);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.cards-category .cards-category-card-body a:hover {
+  color: var(--link-hover-color);
+}
+
+.cards-category .cards-category-card-body a.button:any-link {
+  border-color: var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--color-black);
+}
+
+.cards-category .cards-category-card-body a.button:hover {
+  background-color: var(--light-color);
+}
+
+@media (width >= 900px) {
+  .cards-category > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

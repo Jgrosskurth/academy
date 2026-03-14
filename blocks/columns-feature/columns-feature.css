@@ -1,10 +1,14 @@
+/* Columns Feature — content + image side-by-side (Tire Decision Guide) */
 .columns-feature > div {
   display: flex;
   flex-direction: column;
+  gap: 24px;
 }
 
 .columns-feature img {
   width: 100%;
+  display: block;
+  border-radius: 0;
 }
 
 .columns-feature > div > div {
@@ -15,15 +19,59 @@
   order: 0;
 }
 
-.columns-feature > div > .columns-feature-img-col img {
-  display: block;
+.columns-feature h4 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-m);
+  font-weight: 400;
+  line-height: 1.23;
+  color: var(--text-color);
+  margin-top: 0;
+}
+
+.columns-feature p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.43;
+  color: var(--text-color);
+}
+
+.columns-feature a.button:any-link {
+  background-color: var(--accent-color);
+  border-color: transparent;
+  color: var(--color-white);
+}
+
+.columns-feature a.button:hover {
+  background-color: var(--color-red-hover);
+}
+
+.columns-feature ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.columns-feature li {
+  position: relative;
+  padding-left: 28px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.columns-feature li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: 800;
 }
 
 @media (width >= 900px) {
   .columns-feature > div {
+    flex-direction: row;
     align-items: center;
-    flex-direction: unset;
-    gap: 24px;
+    gap: 48px;
   }
 
   .columns-feature > div > div {
