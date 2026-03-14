@@ -149,21 +149,6 @@ export default async function decorate(block) {
     });
   }
 
-  // add icons to nav-tools links
-  const navTools = nav.querySelector('.nav-tools');
-  if (navTools) {
-    const iconMap = { Search: 'search', 'Find A Dealer': 'location', 'Find Tires': 'tire' };
-    navTools.querySelectorAll('a').forEach((link) => {
-      const iconName = iconMap[link.textContent.trim()];
-      if (iconName) {
-        const icon = document.createElement('span');
-        icon.className = 'icon';
-        icon.innerHTML = `<img data-icon-name="${iconName}" src="/icons/${iconName}.svg" alt="${link.textContent.trim()}" loading="lazy">`;
-        link.prepend(icon);
-      }
-    });
-  }
-
   // mobile secondary links — shown inside expanded menu
   const mobileLinks = document.createElement('div');
   mobileLinks.className = 'nav-mobile-links';
