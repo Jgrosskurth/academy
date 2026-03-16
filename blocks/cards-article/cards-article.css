@@ -107,6 +107,14 @@
   margin: 0;
 }
 
+/* Tagline paragraph (when no links inside — CMS may use <p> instead of <h6>) */
+.cards-article-container > .default-content-wrapper:last-child > p:only-child {
+  font-family: var(--heading-font-family);
+  font-size: 28px;
+  font-weight: 300;
+  text-align: center;
+}
+
 .cards-article-container > .default-content-wrapper:last-child a:any-link {
   display: inline-flex;
   align-items: center;
@@ -139,7 +147,8 @@
     padding: 48px 0 16px;
   }
 
-  .cards-article-container > .default-content-wrapper:last-child h6 {
+  .cards-article-container > .default-content-wrapper:last-child h6,
+  .cards-article-container > .default-content-wrapper:last-child > p:only-child {
     font-size: 32px;
     flex: 0 1 auto;
   }
