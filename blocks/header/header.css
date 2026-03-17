@@ -539,7 +539,7 @@ header nav .nav-tools .icon img {
   display: block;
   width: 22px;
   height: 22px;
-  filter: brightness(0) saturate(100%) invert(12%) sepia(99%) saturate(6779%) hue-rotate(3deg) brightness(96%) contrast(116%);
+  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6200%) hue-rotate(1deg) brightness(89%) contrast(113%);
 }
 
 @media (width >= 900px) {
@@ -573,7 +573,7 @@ header nav .nav-tools .icon img {
   header nav .nav-tools .icon img {
     width: 21px;
     height: 21px;
-    filter: brightness(0) saturate(100%) invert(12%) sepia(99%) saturate(6779%) hue-rotate(3deg) brightness(96%) contrast(116%);
+    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6200%) hue-rotate(1deg) brightness(89%) contrast(113%);
   }
 }
 
@@ -608,7 +608,7 @@ header nav .nav-mobile-links .nav-icon {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  filter: brightness(0) saturate(100%) invert(12%) sepia(99%) saturate(6779%) hue-rotate(3deg) brightness(96%) contrast(116%);
+  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6200%) hue-rotate(1deg) brightness(89%) contrast(113%);
 }
 
 @media (width >= 900px) {
