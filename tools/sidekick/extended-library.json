@@ -1,0 +1,46 @@
+{
+  "blocks": {
+    "data": [
+      {
+        "name": "Hero Brand",
+        "path": "/jgrosskurth/bridgestone/main/block-library/hero-brand",
+        "description": "Full-bleed hero with background image, heading, description, and CTA buttons."
+      },
+      {
+        "name": "Cards — Category",
+        "path": "/jgrosskurth/bridgestone/main/block-library/cards-category",
+        "description": "Side-by-side category cards with image, title, description, and CTA links."
+      },
+      {
+        "name": "Columns — Feature",
+        "path": "/jgrosskurth/bridgestone/main/block-library/columns-feature",
+        "description": "Two-column layout with text content on the left and a feature image on the right."
+      },
+      {
+        "name": "Cards — Bento",
+        "path": "/jgrosskurth/bridgestone/main/block-library/cards-bento",
+        "description": "Bento grid of mixed cards: image+text, text-only, and image-only tiles."
+      },
+      {
+        "name": "Cards — Promo",
+        "path": "/jgrosskurth/bridgestone/main/block-library/cards-promo",
+        "description": "Promotional offer cards with image overlay showing price/amount, date ranges, and CTAs."
+      },
+      {
+        "name": "Columns — Showcase",
+        "path": "/jgrosskurth/bridgestone/main/block-library/columns-showcase",
+        "description": "Two-column showcase with large image on the left and text content on the right."
+      },
+      {
+        "name": "Cards — Article",
+        "path": "/jgrosskurth/bridgestone/main/block-library/cards-article",
+        "description": "Article preview cards with image, title, category label, reading time, and excerpt."
+      },
+      {
+        "name": "Cards — Support",
+        "path": "/jgrosskurth/bridgestone/main/block-library/cards-support",
+        "description": "Support category cards with eyebrow text, title, description, and action links."
+      }
+    ]
+  }
+}
