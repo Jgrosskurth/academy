@@ -8,6 +8,10 @@ helix-importer-ui
 *.bak
 .idea
 
+# Migration work artifacts
+migration-work/
+tools/da-library-setup.js
+
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
