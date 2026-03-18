@@ -1,109 +1,6 @@
-/* Bridgestone Header — Two-tier navigation */
+/* Academy Sports + Outdoors Header */
 
-/* ============================================================
-   Utility bar — Personal/Commercial toggle + quick links
-   ============================================================ */
-.nav-utility {
-  display: none;
-}
-
-@media (width >= 900px) {
-  .nav-utility {
-    display: block;
-    background-color: var(--light-color);
-    color: var(--text-color);
-  }
-
-  .nav-utility-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1264px;
-    margin: 0 auto;
-    padding: 0 32px;
-    height: var(--nav-utility-height);
-  }
-
-  .nav-utility-left,
-  .nav-utility-right {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .nav-utility a {
-    color: var(--text-color);
-    font-family: var(--heading-font-family);
-    font-size: 11px;
-    font-weight: 500;
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity var(--transition-base);
-  }
-
-  .nav-utility a:hover {
-    opacity: 1;
-  }
-
-  .nav-utility-active {
-    color: var(--accent-color) !important;
-    opacity: 1 !important;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 2px;
-  }
-
-  .nav-utility-left a:first-child {
-    color: var(--text-color);
-    opacity: 1;
-  }
-
-  /* stylelint-disable no-descending-specificity -- utility-right link padding after hover */
-  .nav-utility-right a {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0 8px;
-  }
-
-  .nav-utility-right a:not(:last-child) {
-    border-right: none;
-  }
-
-  .nav-utility-icon {
-    width: 14px;
-    height: 14px;
-    opacity: 0.7;
-  }
-
-  .nav-utility-lang {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-family: var(--heading-font-family);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--text-color);
-    background: none;
-    border: none;
-    padding: 0 0 0 16px;
-    margin-left: 8px;
-    border-left: none;
-    cursor: pointer;
-    opacity: 0.87;
-  }
-
-  .nav-utility-lang img {
-    width: 10px;
-    height: 10px;
-    opacity: 0.6;
-  }
-
-  /* stylelint-enable no-descending-specificity */
-}
-
-/* ============================================================
-   Wrapper — full-width white bar, fixed on mobile
-   ============================================================ */
+/* Wrapper — full-width bar, fixed on mobile */
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
@@ -116,55 +13,43 @@ header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-main-height)
-    'sections sections sections' 1fr / auto 1fr auto;
+    'hamburger brand' var(--nav-height)
+    'sections sections' 1fr / auto 1fr;
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1264px;
-  height: var(--nav-main-height);
+  max-width: 1200px;
+  height: var(--nav-height);
   padding: 0 24px;
-  font-family: var(--heading-font-family);
+  font-family: var(--body-font-family);
 }
 
 header nav[aria-expanded='true'] {
   grid-template:
     'hamburger brand' var(--nav-height)
-    'sections sections' auto
-    'mobilelinks mobilelinks' auto / auto 1fr;
+    'sections sections' auto / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
-}
-
-header nav[aria-expanded='true'] .nav-tools {
-  display: none;
 }
 
 @media (width >= 900px) {
   header .nav-wrapper {
     position: relative;
-    border-bottom: none;
   }
 
   header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0 24px;
-    max-width: 1264px;
+    gap: 0 32px;
+    max-width: 1200px;
     padding: 0 32px;
-    height: var(--nav-main-height);
-    border-bottom: 1px solid var(--color-grey-border);
-    position: relative;
+    height: var(--nav-height);
   }
 
   header nav[aria-expanded='true'] {
     min-height: 0;
     overflow: visible;
-  }
-
-  header nav[aria-expanded='true'] .nav-tools {
-    display: flex;
   }
 }
 
@@ -173,14 +58,29 @@ header nav p {
   line-height: 1;
 }
 
+/* Brand */
+header .nav-brand {
+  grid-area: brand;
+  font-size: var(--heading-font-size-s);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* stylelint-disable no-descending-specificity -- brand needs specificity over nav links */
+header .nav-brand a {
+  color: var(--color-brand-blue, #003057);
+  font-weight: 700;
+  text-decoration: none;
+}
+
 header nav a:any-link {
   color: currentcolor;
   text-decoration: none;
 }
 
-/* ============================================================
-   Hamburger — mobile only
-   ============================================================ */
+/* stylelint-enable no-descending-specificity */
+
+/* Hamburger — mobile only */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -261,36 +161,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-/* ============================================================
-   Brand — Bridgestone logo
-   ============================================================ */
-header .nav-brand {
-  grid-area: brand;
-  flex-basis: 160px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
-  line-height: 1;
-}
-
-header nav .nav-brand img {
-  width: 160px;
-  height: auto;
-}
-
-@media (width >= 900px) {
-  header .nav-brand {
-    flex-basis: 180px;
-    margin-right: 16px;
-  }
-
-  header nav .nav-brand img {
-    width: 180px;
-  }
-}
-
-/* ============================================================
-   Sections — main nav links (Automotive, Motorcycle, etc.)
-   ============================================================ */
+/* Nav sections */
 header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
@@ -307,72 +178,22 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-family: var(--heading-font-family);
-  font-size: var(--body-font-size-s);
-  font-weight: 400;
+  font-size: var(--body-font-size-m);
 }
 
-/* Mobile: top-level items — large bold with bottom border */
 header nav .nav-sections .default-content-wrapper > ul {
   margin: 0;
   padding: 16px 0;
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li {
-  font-size: 20px;
-  font-weight: 700;
-  padding: 16px 0;
+  font-weight: 600;
+  padding: 12px 0;
   border-bottom: 1px solid var(--color-grey-border);
-  text-transform: capitalize;
 }
 
-/* Mobile: chevron arrow on nav-drop items */
-header nav .nav-sections .nav-drop {
-  position: relative;
-  cursor: pointer;
-}
-
-header nav .nav-sections .nav-drop::after {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  right: 4px;
-  top: 24px;
-  transform: rotate(45deg);
-  width: 8px;
-  height: 8px;
-  border: 2px solid currentcolor;
-  border-width: 2px 2px 0 0;
-  transition: transform 0.2s ease;
-}
-
-header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-  top: 22px;
-  transform: rotate(135deg);
-}
-
-/* Mobile: sub-menus hidden by default */
 header nav .nav-sections .default-content-wrapper > ul > li > ul {
   display: none;
-  margin-top: 0;
-}
-
-/* Mobile: sub-menus visible when expanded */
-header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-  display: block;
-  margin-top: 8px;
-  padding-bottom: 4px;
-}
-
-/* Mobile: sub-menu items — smaller, lighter */
-header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-  font-size: var(--body-font-size-m);
-  font-weight: 400;
-  padding: 10px 0;
-}
-
-header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
-  color: var(--text-color);
 }
 
 @media (width >= 900px) {
@@ -382,44 +203,16 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
     white-space: nowrap;
   }
 
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
-  }
-
-  header nav .nav-sections .nav-drop {
-    padding-right: 16px;
-    cursor: pointer;
-  }
-
-  /* Arrow chevron — inline relative positioning (desktop override) */
-  header nav .nav-sections .nav-drop::after {
-    position: relative;
-    right: auto;
-    top: -1px;
-    margin-left: 2px;
-    transform: rotate(135deg);
-    width: 5px;
-    height: 5px;
-    border-radius: 0 1px 0 0;
-  }
-
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: 2px;
-    transform: rotate(315deg);
-  }
-
   header nav .nav-sections ul {
     display: flex;
     gap: 32px;
     margin: 0;
-    font-size: 13.7px;
+    font-size: var(--body-font-size-s);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
-    position: static;
-    font-size: 13.7px;
-    font-weight: 400;
+    font-weight: 500;
     padding: 0;
     padding-bottom: 4px;
     border-bottom: 3px solid transparent;
@@ -427,7 +220,7 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li a {
-    color: var(--color-black);
+    color: var(--color-text);
     transition: color var(--transition-base);
   }
 
@@ -435,186 +228,7 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
     color: var(--accent-color);
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li:hover,
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] {
+  header nav .nav-sections .default-content-wrapper > ul > li:hover {
     border-bottom-color: var(--accent-color);
   }
-
-  /* Sub-menu hidden by default */
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
-    display: none;
-  }
-
-  /* Full-width mega menu panel */
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 40px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    padding: 24px 32px;
-    background-color: var(--background-color);
-    white-space: initial;
-    box-shadow: 0 4px 16px rgb(0 0 0 / 8%);
-    border-top: 1px solid var(--color-grey-border);
-    border-radius: 0;
-    z-index: 20;
-  }
-
-  /* stylelint-disable no-descending-specificity -- sub-dropdown items vs parent hover */
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 6px 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
-    font-size: var(--body-font-size-s);
-    color: var(--text-color);
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
-    color: var(--accent-color);
-  }
-
-  /* stylelint-enable no-descending-specificity */
 }
-
-/* ============================================================
-   Tools — Search, Find A Dealer, Find Tires
-   ============================================================ */
-
-/* stylelint-disable no-descending-specificity -- tools section after mobile nav sub-items */
-header nav .nav-tools {
-  grid-area: tools;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-header nav .nav-tools .default-content-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-header nav .nav-tools a:any-link,
-header nav .nav-tools button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  font-family: var(--heading-font-family);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--color-black);
-  text-transform: uppercase;
-  letter-spacing: normal;
-  text-decoration: none;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: color var(--transition-base);
-}
-
-header nav .nav-tools a:hover,
-header nav .nav-tools button:hover {
-  color: var(--accent-color);
-}
-
-/* Mobile: tool links — show icons only, hide text labels */
-header nav .nav-tools p {
-  margin: 0;
-  line-height: 1;
-}
-
-header nav .nav-tools a:any-link {
-  font-size: 0;
-  flex-direction: row;
-  gap: 0;
-}
-
-header nav .nav-tools .icon img {
-  display: block;
-  width: 22px;
-  height: 22px;
-  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6200%) hue-rotate(1deg) brightness(89%) contrast(113%);
-}
-
-@media (width >= 900px) {
-  header nav .nav-tools {
-    gap: 24px;
-    flex-shrink: 0;
-  }
-
-  header nav .nav-tools .default-content-wrapper {
-    gap: 24px;
-  }
-
-  header nav .nav-tools a:any-link {
-    font-size: 12px;
-    flex-direction: column;
-    gap: 2px;
-    padding: 6px 8px;
-    letter-spacing: normal;
-    color: var(--accent-color);
-  }
-
-  header nav .nav-tools p {
-    display: block;
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: normal;
-    margin: 2px 0 0;
-  }
-
-  header nav .nav-tools .icon img {
-    width: 21px;
-    height: 21px;
-    filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6200%) hue-rotate(1deg) brightness(89%) contrast(113%);
-  }
-}
-
-/* ============================================================
-   Mobile secondary links — inside expanded menu
-   ============================================================ */
-header nav .nav-mobile-links {
-  display: none;
-}
-
-header nav[aria-expanded='true'] .nav-mobile-links {
-  grid-area: mobilelinks;
-  display: flex;
-  flex-direction: column;
-  padding: 16px 0;
-  border-top: 1px solid var(--color-grey-border);
-}
-
-header nav .nav-mobile-links a {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 0;
-  font-family: var(--heading-font-family);
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--text-color);
-  text-decoration: none;
-}
-
-header nav .nav-mobile-links .nav-icon {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  filter: brightness(0) saturate(100%) invert(14%) sepia(95%) saturate(6200%) hue-rotate(1deg) brightness(89%) contrast(113%);
-}
-
-@media (width >= 900px) {
-  header nav .nav-mobile-links {
-    display: none !important;
-  }
-}
-
-/* stylelint-enable no-descending-specificity */

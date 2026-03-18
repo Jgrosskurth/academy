@@ -12,61 +12,6 @@ import {
   loadCSS,
 } from './aem.js';
 
-/* Scene7 image URL mapping — fixes broken image sources in DA content */
-const S7 = 'https://s7d1.scene7.com/is/image/bridgestone';
-const IMAGE_FIX_MAP = {
-  'hero-brand': [
-    { src: `${S7}/bst-personal-homepage-hero-1500-v2`, alt: 'car on the road' },
-  ],
-  'cards-category': [
-    { src: `${S7}/bst-automotive-cc-1500`, alt: 'Automotive tires' },
-    { src: `${S7}/bst-motorcycle-card-1500`, alt: 'Motorcycle tires' },
-  ],
-  'columns-feature': [
-    { src: `${S7}/bridgestone-consumer-alenza-prestige-homepage`, alt: 'Bridgestone Alenza tire' },
-  ],
-  'cards-bento': [
-    { src: `${S7}/bst-homepage-retailer-bento`, alt: 'Tire dealer' },
-    { src: `${S7}/bento4`, alt: 'Bridgestone E8 Commitment' },
-    { src: `${S7}/bst-homepage-bento-dueler-lifestyle-1500`, alt: 'Bridgestone Dueler tire' },
-    { src: `${S7}/background-highway-road-between-forest-and-sea`, alt: 'Highway road' },
-  ],
-  'cards-promo': [
-    { src: `${S7}/spring-us-motorcycle-promo`, alt: 'Spring motorcycle promotion' },
-    { src: `${S7}/2026-march-promo`, alt: 'March promotion' },
-    { src: `${S7}/bridgestone-consumer-homepage-card-offers-promotions?fmt=webp`, alt: 'CFNA financing' },
-  ],
-  'columns-showcase': [
-    { src: `${S7}/sustainability-3-desk-images-na-bst-web-consumer-v1`, alt: 'Bridgestone sustainability' },
-  ],
-  'cards-article': [
-    { src: `${S7}/bst-homepage-learn-summer-vs-as-1500`, alt: 'Summer tires vs all season' },
-    { src: `${S7}/bst-learn-runflat-1500`, alt: 'Run flat tires' },
-    { src: `${S7}/hero-202506-motorcycle-learn-desktop-homepage-global-consumer`, alt: 'Motorcycle tire maintenance' },
-  ],
-};
-
-/**
- * Replaces broken image sources (about:error) with correct Scene7 CDN URLs.
- * DA content lost the original image URLs; this maps each block's images by position.
- * @param {Element} main The main container element
- */
-function fixBrokenImages(main) {
-  Object.entries(IMAGE_FIX_MAP).forEach(([blockClass, images]) => {
-    const block = main.querySelector(`.${blockClass}`);
-    if (!block) return;
-    const brokenImgs = [...block.querySelectorAll('img')].filter(
-      (img) => !img.getAttribute('src') || img.getAttribute('src') === 'about:error',
-    );
-    brokenImgs.forEach((img, idx) => {
-      if (idx < images.length) {
-        img.src = images[idx].src;
-        if (!img.alt) img.alt = images[idx].alt;
-      }
-    });
-  });
-}
-
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -123,34 +68,6 @@ function buildAutoBlocks(main) {
     }
 
     buildHeroBlock(main);
-
-    // auto-style "Contact Us" section
-    // Note: runs before decorateSections, so no .section or .default-content-wrapper yet.
-    // Paragraphs are direct children of section <div>s which are direct children of <main>.
-    const contactHeading = [...main.querySelectorAll(':scope > div > p')].find(
-      (p) => p.textContent.trim() === 'Have a Question? Contact Us!',
-    );
-    if (contactHeading) {
-      const section = contactHeading.parentElement;
-      section.classList.add('contact-cta');
-
-      // remove tracking-pixel images (1×1 gifs from analytics)
-      section.querySelectorAll('img').forEach((img) => {
-        const p = img.closest('p');
-        if (p) p.remove();
-      });
-
-      // add CTA button after phone-number paragraph
-      const phonePara = [...section.querySelectorAll('p')].find(
-        (p) => p.querySelector('a[href^="tel:"]'),
-      );
-      if (phonePara) {
-        const cta = document.createElement('p');
-        cta.className = 'button-wrapper';
-        cta.innerHTML = '<a href="/en-us/support/contact-us" title="Contact Bridgestone Service Center" class="button primary">Contact Bridgestone Service Center</a>';
-        phonePara.after(cta);
-      }
-    }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -202,7 +119,11 @@ function decorateButtons(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  fixBrokenImages(main);
+  // Remove duplicate section-metadata blocks (import artifact)
+  main.querySelectorAll(':scope > div').forEach((section) => {
+    const metas = [...section.querySelectorAll(':scope > .section-metadata')];
+    if (metas.length > 1) metas.slice(1).forEach((m) => m.remove());
+  });
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);

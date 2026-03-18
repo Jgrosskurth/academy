@@ -98,9 +98,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 
   // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
-    // collapse menu on escape press
     window.addEventListener('keydown', closeOnEscape);
-    // collapse menu on focus lost
     nav.addEventListener('focusout', closeOnFocusLost);
   } else {
     window.removeEventListener('keydown', closeOnEscape);
@@ -131,10 +129,12 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
+  if (navBrand) {
+    const brandLink = navBrand.querySelector('.button');
+    if (brandLink) {
+      brandLink.className = '';
+      brandLink.closest('.button-container').className = '';
+    }
   }
 
   const navSections = nav.querySelector('.nav-sections');
@@ -149,17 +149,6 @@ export default async function decorate(block) {
     });
   }
 
-  // mobile secondary links — shown inside expanded menu
-  const mobileLinks = document.createElement('div');
-  mobileLinks.className = 'nav-mobile-links';
-  mobileLinks.innerHTML = `
-    <a href="/content/index"><img class="nav-icon" src="/icons/search.svg" alt="" loading="lazy" width="20" height="20">Customer Support</a>
-    <a href="/content/index"><img class="nav-icon" src="/icons/search.svg" alt="" loading="lazy" width="20" height="20">Special Offers</a>
-    <a href="/content/index"><img class="nav-icon" src="/icons/tire.svg" alt="" loading="lazy" width="20" height="20">Tire Decision Guide</a>
-    <a href="/content/index"><img class="nav-icon" src="/icons/location.svg" alt="" loading="lazy" width="20" height="20">Find A Dealer</a>
-    <a href="/content/index"><img class="nav-icon" src="/icons/tire.svg" alt="" loading="lazy" width="20" height="20">Find Tires</a>`;
-  nav.append(mobileLinks);
-
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -173,25 +162,8 @@ export default async function decorate(block) {
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
-  // utility bar — above main nav (desktop only)
-  const utilityBar = document.createElement('div');
-  utilityBar.className = 'nav-utility';
-  utilityBar.innerHTML = `<div class="nav-utility-inner">
-    <div class="nav-utility-left">
-      <a href="/" class="nav-utility-active">Personal</a>
-      <a href="https://commercial.bridgestone.com/en-us/index">Commercial</a>
-    </div>
-    <div class="nav-utility-right">
-      <a href="/content/index"><img class="nav-utility-icon" src="/icons/chat.svg" alt="" loading="lazy" width="16" height="16">Customer Support</a>
-      <a href="/content/index"><img class="nav-utility-icon" src="/icons/tag.svg" alt="" loading="lazy" width="16" height="16">Special Offers</a>
-      <a href="/content/index"><img class="nav-utility-icon" src="/icons/help-circle.svg" alt="" loading="lazy" width="16" height="16">Tire Decision Guide</a>
-      <button type="button" class="nav-utility-lang"><span>US-EN</span><img src="/icons/chevron-down.svg" alt="" loading="lazy" width="12" height="12"></button>
-    </div>
-  </div>`;
-
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
-  navWrapper.append(utilityBar);
   navWrapper.append(nav);
   block.append(navWrapper);
 }

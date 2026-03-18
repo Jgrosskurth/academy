@@ -1,34 +1,33 @@
 /*
- * Bridgestone Tires - AEM Edge Delivery Services
- * Design system migrated from https://tires.bridgestone.com/
+ * Academy Sports + Outdoors - AEM Edge Delivery Services
  */
 
 :root {
   /* colors */
-  --color-red: #ef0000;
-  --color-red-dark: #d80000;
-  --color-red-hover: #c00;
-  --color-red-link-hover: #93180d;
+  --color-brand-blue: #003057;
+  --color-brand-red: #e4002b;
+  --color-brand-red-hover: #c50025;
   --color-white: #fff;
   --color-black: #000;
-  --color-text: rgb(0 0 0 / 87%);
-  --color-text-muted: rgb(0 0 0 / 60%);
+  --color-text: #333;
+  --color-text-muted: #666;
   --color-grey-light: #f5f5f5;
-  --color-grey-border: #cbcbcb;
-  --color-grey-tab: #757575;
+  --color-grey-border: #ddd;
+  --color-yellow: #ffc72c;
+  --color-yellow-light: #fff3d0;
 
   /* semantic colors */
   --background-color: var(--color-white);
   --light-color: var(--color-grey-light);
   --dark-color: var(--color-black);
   --text-color: var(--color-text);
-  --link-color: var(--color-red-dark);
-  --link-hover-color: var(--color-red);
-  --accent-color: var(--color-red);
+  --link-color: var(--color-brand-blue);
+  --link-hover-color: var(--color-brand-red);
+  --accent-color: var(--color-brand-red);
 
   /* fonts */
-  --body-font-family: bridgestonetype, bridgestonetype-fallback, sans-serif;
-  --heading-font-family: decimal, decimal-fallback, sans-serif;
+  --body-font-family: system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
+  --heading-font-family: system-ui, -apple-system, 'Segoe UI', roboto, 'Helvetica Neue', arial, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 16px;
@@ -38,56 +37,38 @@
   /* heading sizes (mobile first) */
   --heading-font-size-xxl: 36px;
   --heading-font-size-xl: 28px;
-  --heading-font-size-l: 28px;
-  --heading-font-size-m: 22px;
-  --heading-font-size-s: 21px;
-  --heading-font-size-xs: 17.5px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 20px;
+  --heading-font-size-s: 18px;
+  --heading-font-size-xs: 16px;
 
   /* nav */
-  --nav-height: 113px;
-  --nav-utility-height: 45px;
-  --nav-main-height: 68px;
+  --nav-height: 64px;
 
   /* layout */
   --section-max-width: 1200px;
   --section-padding: 0 24px;
 
   /* buttons */
-  --button-border-radius: 40px;
-  --button-padding: 8px 20px 9px;
+  --button-border-radius: 4px;
+  --button-padding: 10px 24px;
   --button-font-size: 14px;
-  --button-font-weight: 400;
-  --button-transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  --button-font-weight: 600;
+  --button-transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
   /* transitions */
   --transition-fast: 0.15s ease;
   --transition-base: 0.25s ease;
 }
 
-/* fallback fonts */
-@font-face {
-  font-family: bridgestonetype-fallback;
-  size-adjust: 100%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: decimal-fallback;
-  size-adjust: 95%;
-  src: local('Arial Narrow'), local('Helvetica'), local('Arial');
-}
-
 @media (width >= 900px) {
   :root {
-    /* heading sizes (desktop) */
     --heading-font-size-xxl: 48px;
-    --heading-font-size-xl: 37.28px;
-    --heading-font-size-l: 25.91px;
-    --heading-font-size-m: 25.91px;
-    --heading-font-size-s: 20.99px;
-    --heading-font-size-xs: 17.5px;
-
-    /* layout */
+    --heading-font-size-xl: 36px;
+    --heading-font-size-l: 28px;
+    --heading-font-size-m: 24px;
+    --heading-font-size-s: 20px;
+    --heading-font-size-xs: 18px;
     --section-padding: 0 32px;
   }
 }
@@ -108,13 +89,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-main-height);
-}
-
-@media (width >= 900px) {
-  header {
-    height: var(--nav-height);
-  }
+  height: var(--nav-height);
 }
 
 header .header,
@@ -128,69 +103,29 @@ footer .footer[data-block-status="loaded"] {
 }
 
 /* headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.2;
   scroll-margin: 40px;
   color: var(--text-color);
 }
 
-h1 {
-  font-size: var(--heading-font-size-xxl);
-  font-weight: 300;
-  line-height: 1.2;
-}
+h1 { font-size: var(--heading-font-size-xxl); }
+h2 { font-size: var(--heading-font-size-xl); }
+h3 { font-size: var(--heading-font-size-l); }
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
 
-h2 {
-  font-size: var(--heading-font-size-xl);
-  font-weight: 300;
-  line-height: 1.2;
-}
-
-h3 {
-  font-size: var(--heading-font-size-l);
-  font-weight: 300;
-  line-height: 1.2;
-}
-
-h4 {
-  font-size: var(--heading-font-size-m);
-  font-weight: 400;
-  line-height: 1.23;
-}
-
-h5 {
-  font-size: var(--heading-font-size-s);
-  font-weight: 400;
-  line-height: 1.33;
-}
-
-h6 {
-  font-size: var(--heading-font-size-xs);
-  font-weight: 500;
-  line-height: 1.6;
-}
-
-p,
-dl,
-ol,
-ul,
-pre,
-blockquote {
+p, dl, ol, ul, pre, blockquote {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
 }
 
-code,
-pre {
+code, pre {
   font-size: var(--body-font-size-s);
 }
 
@@ -206,10 +141,7 @@ main > div {
   margin: 40px 16px;
 }
 
-input,
-textarea,
-select,
-button {
+input, textarea, select, button {
   font: inherit;
 }
 
@@ -241,24 +173,25 @@ button.button {
   border: 2px solid var(--accent-color);
   border-radius: var(--button-border-radius);
   padding: var(--button-padding);
-  font-family: var(--heading-font-family);
+  font-family: var(--body-font-family);
   font-size: var(--button-font-size);
   font-weight: var(--button-font-weight);
   line-height: 1;
   text-decoration: none;
+  text-transform: uppercase;
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: var(--button-transition);
   background-color: var(--background-color);
-  color: var(--color-black);
+  color: var(--accent-color);
 }
 
 a.button:hover,
 button.button:hover {
   background-color: var(--color-grey-light);
-  border-color: var(--color-red-hover);
+  border-color: var(--color-brand-red-hover);
 }
 
 a.button:focus-visible,
@@ -267,14 +200,7 @@ button.button:focus-visible {
   outline-offset: 2px;
 }
 
-a.button[aria-disabled="true"],
-button.button:disabled {
-  cursor: not-allowed;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-/* primary button — red filled */
+/* primary button */
 a.button.primary,
 button.button.primary {
   border-color: var(--accent-color);
@@ -283,44 +209,37 @@ button.button.primary {
 }
 
 a.button.primary:hover,
-a.button.primary:focus-visible,
-button.button.primary:hover,
-button.button.primary:focus-visible {
-  border-color: var(--color-red-hover);
-  background-color: var(--color-red-hover);
+button.button.primary:hover {
+  border-color: var(--color-brand-red-hover);
+  background-color: var(--color-brand-red-hover);
   color: var(--color-white);
 }
 
-/* secondary button — outlined */
+/* secondary button */
 a.button.secondary,
 button.button.secondary {
   border-color: var(--accent-color);
   background-color: transparent;
-  color: var(--color-black);
+  color: var(--accent-color);
 }
 
 a.button.secondary:hover,
-a.button.secondary:focus-visible,
-button.button.secondary:hover,
-button.button.secondary:focus-visible {
+button.button.secondary:hover {
   background-color: var(--color-grey-light);
-  border-color: var(--color-red-hover);
 }
 
-/* accent button — same as primary for Bridgestone */
+/* accent button */
 a.button.accent,
 button.button.accent {
-  border-color: var(--accent-color);
-  background-color: var(--accent-color);
+  border-color: var(--color-brand-blue);
+  background-color: var(--color-brand-blue);
   color: var(--color-white);
 }
 
 a.button.accent:hover,
-a.button.accent:focus-visible,
-button.button.accent:hover,
-button.button.accent:focus-visible {
-  border-color: var(--color-red-hover);
-  background-color: var(--color-red-hover);
+button.button.accent:hover {
+  border-color: var(--color-brand-blue);
+  background-color: #024;
 }
 
 main img {
@@ -357,35 +276,16 @@ main > .section:first-of-type {
   padding-top: 0;
 }
 
-/* hero section needs no vertical padding */
-main > .section.hero-brand-container {
-  padding: 0;
-}
-
-@media (width >= 900px) {
-  main > .section > div {
-    padding: var(--section-padding);
-  }
-}
-
-/* Columns-feature section — white background */
-main > .section.columns-feature-container {
-  background-color: var(--color-white);
-}
-
 /* section metadata variants */
 main .section.light,
+main .section.light-gray,
 main .section.highlight {
   background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
 }
 
 main .section.dark {
-  background-color: var(--color-black);
+  background-color: var(--color-brand-blue);
   color: var(--color-white);
-  margin: 0;
-  padding: 40px 0;
 }
 
 main .section.dark h1,
@@ -404,151 +304,28 @@ main .section.dark a:any-link {
 
 main .section.dark a.button.secondary {
   color: var(--color-white);
-  border-color: var(--accent-color);
+  border-color: var(--color-white);
 }
 
-/* ============================================================
-   Tab bar / Quick links (section after hero)
-   ============================================================ */
-main > .section.hero-brand-container + .section {
-  background-color: var(--color-white);
-  border-bottom: 1px solid var(--color-grey-border);
-  padding: 0;
+main .section.yellow {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
 }
 
-main > .section.hero-brand-container + .section > .default-content-wrapper {
-  max-width: var(--section-max-width);
-  margin: 0 auto;
-  padding: 0 24px;
+main .section.yellow h1,
+main .section.yellow h2,
+main .section.yellow h3,
+main .section.yellow p {
+  color: var(--color-black);
 }
 
-main > .section.hero-brand-container + .section > .default-content-wrapper > p {
-  display: flex;
-  gap: 0;
-  margin: 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-main > .section.hero-brand-container + .section > .default-content-wrapper > p::-webkit-scrollbar {
-  display: none;
-}
-
-main > .section.hero-brand-container + .section > .default-content-wrapper > p a {
-  display: inline-flex;
-  align-items: center;
-  padding: 14px 20px;
-  font-family: var(--heading-font-family);
-  font-size: var(--body-font-size-s);
-  font-weight: 400;
-  color: var(--color-grey-tab);
-  white-space: nowrap;
-  text-decoration: none;
-  border-bottom: 3px solid transparent;
-  transition: color var(--transition-base), border-color var(--transition-base);
-}
-
-main > .section.hero-brand-container + .section > .default-content-wrapper > p a:hover {
-  color: var(--accent-color);
-  border-bottom-color: var(--accent-color);
-}
-
-/* Promo and Article sections — light gray background */
-main > .section.cards-promo-container,
-main > .section.cards-article-container {
-  background-color: var(--light-color);
-}
-
-/* ============================================================
-   Section headings (Tire Offers, What's New, etc.)
-   ============================================================ */
-/* stylelint-disable no-descending-specificity -- section-specific overrides */
-.cards-promo-container > .default-content-wrapper > p,
-.cards-article-container > .default-content-wrapper > p {
-  font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-l);
-  font-weight: 300;
-  line-height: 1.2;
-  color: var(--text-color);
-}
-
-/* ============================================================
-   Contact section (Have a Question?)
-   ============================================================ */
-main > .section:last-of-type > .default-content-wrapper {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 48px 24px;
-}
-
-main > .section:last-of-type > .default-content-wrapper > p:first-child {
-  font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-s);
-  font-weight: 400;
-  line-height: 1.33;
-  margin-bottom: 16px;
-}
-
-main > .section:last-of-type > .default-content-wrapper > p {
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  line-height: 1.5;
-  color: var(--text-color);
-}
-
-main > .section:last-of-type > .default-content-wrapper a[href^="tel:"] {
-  color: var(--accent-color);
-  font-weight: 700;
-}
-
-.section.contact-cta .default-content-wrapper > p:last-child a.button:any-link {
+main .section.academy-red {
   background-color: var(--accent-color);
-  border-color: var(--accent-color);
   color: var(--color-white);
-  padding: 12px 32px;
-  font-size: var(--body-font-size-m);
 }
 
-.section.contact-cta .default-content-wrapper > p:last-child a.button:hover {
-  background-color: var(--color-red-hover);
-  border-color: var(--color-red-hover);
+@media (width >= 900px) {
+  main > .section > div {
+    padding: var(--section-padding);
+  }
 }
-
-/* ============================================================
-   Contact Us CTA section
-   ============================================================ */
-.section.contact-cta {
-  background-color: var(--light-color);
-  text-align: center;
-  padding: 48px 24px;
-}
-
-.section.contact-cta .default-content-wrapper {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-.section.contact-cta .default-content-wrapper > p:first-child {
-  font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-xl);
-  font-weight: 300;
-  margin-bottom: 16px;
-}
-
-.section.contact-cta .default-content-wrapper > p {
-  font-size: var(--body-font-size-m);
-  line-height: 1.6;
-  margin: 8px 0;
-}
-
-.section.contact-cta .button-wrapper {
-  margin-top: 24px;
-}
-
-.section.contact-cta a.button.primary {
-  min-width: 320px;
-}
-
-/* stylelint-enable no-descending-specificity */
