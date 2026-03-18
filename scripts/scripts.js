@@ -114,16 +114,68 @@ function decorateButtons(main) {
 }
 
 /**
- * Decorates the main element.
+ * Removes chatbot widgets, Scout AI, Clarip, and other noise from imported content.
+ * These elements are artifacts from the original site's third-party scripts.
  * @param {Element} main The main element
  */
-// eslint-disable-next-line import/prefer-default-export
-export function decorateMain(main) {
+function cleanImportArtifacts(main) {
   // Remove duplicate section-metadata blocks (import artifact)
   main.querySelectorAll(':scope > div').forEach((section) => {
     const metas = [...section.querySelectorAll(':scope > .section-metadata')];
     if (metas.length > 1) metas.slice(1).forEach((m) => m.remove());
   });
+
+  // Remove chatbot / Scout AI noise: truncate at "Need Help?" marker
+  main.querySelectorAll(':scope > div').forEach((section) => {
+    const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
+    let node = walker.nextNode();
+    while (node) {
+      if (node.textContent.includes('Need Help?')) {
+        // Remove this element and all subsequent siblings in the section
+        let el = node.parentElement;
+        while (el && el !== section) el = el.parentElement;
+        if (el === section) {
+          // Find the paragraph containing "Need Help?" and remove everything after it
+          let target = node.parentElement;
+          while (target && target.parentElement !== section) target = target.parentElement;
+          if (target) {
+            while (target.nextElementSibling) target.nextElementSibling.remove();
+            target.remove();
+          }
+        }
+        break;
+      }
+      node = walker.nextNode();
+    }
+  });
+
+  // Remove malformed metadata tables that render as visible text
+  main.querySelectorAll('p').forEach((p) => {
+    if (p.textContent.includes('Metadata') && p.textContent.includes('Title')) {
+      const section = p.closest('div');
+      if (section && section.parentElement === main) section.remove();
+      else p.remove();
+    }
+  });
+
+  // Remove .description divs (not a real block, causes 404)
+  main.querySelectorAll('.description').forEach((el) => el.remove());
+
+  // Remove empty sections
+  main.querySelectorAll(':scope > div').forEach((section) => {
+    if (!section.textContent.trim() && !section.querySelector('img, picture, video')) {
+      section.remove();
+    }
+  });
+}
+
+/**
+ * Decorates the main element.
+ * @param {Element} main The main element
+ */
+// eslint-disable-next-line import/prefer-default-export
+export function decorateMain(main) {
+  cleanImportArtifacts(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
@@ -143,6 +195,12 @@ async function loadEager(doc) {
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
+  }
+
+  // Fix page title if it was set incorrectly from import artifacts
+  if (document.title === 'Section Metadata' || !document.title) {
+    const metaTitle = document.querySelector('meta[property="og:title"]');
+    document.title = metaTitle ? metaTitle.content : 'Academy Sports + Outdoors';
   }
 
   try {
