@@ -10,6 +10,8 @@
 .columns img {
   width: 100%;
   border-radius: 8px;
+  max-height: 300px;
+  object-fit: cover;
 }
 
 .columns > div > div {
@@ -32,6 +34,35 @@
 .columns p {
   color: var(--color-text);
   line-height: 1.5;
+}
+
+/* multi-column layout for 3+ columns (app/credit card/SMS section) */
+.columns > div:has(> :nth-child(3)) {
+  gap: 24px;
+}
+
+.columns > div:has(> :nth-child(3)) > div {
+  text-align: center;
+  border: 1px solid var(--color-grey);
+  border-radius: 8px;
+  padding: 24px 16px;
+}
+
+.columns > div:has(> :nth-child(3)) img {
+  max-height: 64px;
+  width: auto;
+  margin: 0 auto 12px;
+  display: block;
+  object-fit: contain;
+}
+
+.columns > div:has(> :nth-child(3)) h3 {
+  font-size: var(--body-font-size-m);
+  margin: 8px 0;
+}
+
+.columns > div:has(> :nth-child(3)) p {
+  font-size: var(--body-font-size-s);
 }
 
 @media (width >= 900px) {

@@ -1,13 +1,13 @@
 /* Academy Sports + Outdoors Header
-   Original: blue top bar (32px) + white main bar with blue logo + nav links */
+   Dark navy header matching Academy.com brand identity */
 
 /* Wrapper — full-width bar, fixed on mobile */
 header .nav-wrapper {
-  background-color: var(--color-white);
+  background-color: var(--color-brand-navy);
   width: 100%;
   z-index: 10;
   position: fixed;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
+  box-shadow: 0 2px 4px rgb(0 0 0 / 15%);
 }
 
 header nav {
@@ -31,6 +31,7 @@ header nav[aria-expanded='true'] {
     'sections sections' auto / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
+  background-color: var(--color-brand-navy);
 }
 
 @media (width >= 900px) {
@@ -69,13 +70,13 @@ header .nav-brand {
 
 /* stylelint-disable no-descending-specificity -- brand needs specificity over nav links */
 header .nav-brand a {
-  color: var(--color-brand-blue);
+  color: var(--color-white);
   font-weight: 700;
   text-decoration: none;
 }
 
 header nav a:any-link {
-  color: currentcolor;
+  color: var(--color-white);
   text-decoration: none;
 }
 
@@ -96,7 +97,7 @@ header nav .nav-hamburger button {
   border-radius: 0;
   padding: 0;
   background-color: transparent;
-  color: var(--color-brand-blue);
+  color: var(--color-white);
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -190,7 +191,7 @@ header nav .nav-sections .default-content-wrapper > ul {
 header nav .nav-sections .default-content-wrapper > ul > li {
   font-weight: 600;
   padding: 12px 0;
-  border-bottom: 1px solid var(--color-grey);
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -221,15 +222,15 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li a {
-    color: var(--color-text-secondary);
+    color: rgb(255 255 255 / 80%);
     transition: color var(--transition-base);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li a:hover {
-    color: var(--color-brand-blue);
+    color: var(--color-white);
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li:hover {
-    border-bottom-color: var(--color-brand-blue);
+    border-bottom-color: var(--color-white);
   }
 }

@@ -13,15 +13,38 @@
 .hero {
   position: relative;
   padding: 32px 24px;
-  min-height: 240px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* two-column hero: image left, text right */
-.hero > div {
+/* background image pattern - picture is positioned absolutely over entire hero */
+.hero picture {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+
+.hero img {
+  object-fit: cover;
   width: 100%;
+  height: 100%;
+}
+
+/* first div holds the picture - collapse it so text overlays */
+.hero > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* text content sits above the image */
+.hero > div:last-child {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
 }
 
 .hero h1,
@@ -29,8 +52,8 @@
   color: var(--color-white);
   font-size: var(--heading-font-size-xxl);
   font-weight: 700;
-  text-shadow: 0 1px 4px rgb(0 0 0 / 30%);
-  margin: 0 0 8px;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 40%);
+  margin: 0 0 12px;
 }
 
 .hero p {
@@ -42,6 +65,7 @@
   background-color: var(--color-white);
   border-color: var(--color-white);
   color: var(--color-brand-blue);
+  font-size: var(--body-font-size-s);
 }
 
 .hero a.button:hover {
@@ -49,50 +73,30 @@
   border-color: var(--color-grey-light);
 }
 
-/* background image pattern (picture is direct child) */
-.hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
-}
-
-.hero img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-/* two-column hero: image in first div, text in second */
-.hero > div:first-child img {
-  border-radius: 8px;
-}
-
 @media (width >= 600px) {
   .hero {
-    min-height: 300px;
+    min-height: 400px;
+    padding: 48px 32px;
+  }
+
+  .hero h1,
+  .hero h2 {
+    font-size: 32px;
   }
 }
 
 @media (width >= 900px) {
   .hero {
-    flex-direction: row;
-    align-items: center;
-    padding: 48px 32px;
-    min-height: 360px;
-    gap: 32px;
-  }
-
-  .hero > div {
-    flex: 1;
+    min-height: 500px;
+    padding: 64px 48px;
   }
 
   .hero > div:last-child {
-    text-align: right;
+    max-width: 560px;
   }
 
-  .hero > div:last-child .button-wrapper {
-    justify-content: flex-end;
+  .hero h1,
+  .hero h2 {
+    font-size: 40px;
   }
 }
