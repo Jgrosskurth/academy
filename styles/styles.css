@@ -280,15 +280,16 @@ main > .section > div {
   padding: var(--section-padding);
 }
 
-main > .section:first-of-type {
-  margin-top: 0;
-  padding-top: 0;
-}
-
 /* hide empty sections that have no visible content */
+main > .section:not(:has(> *)),
 main > .section:empty {
   display: none;
   padding: 0;
+}
+
+main > .section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* section metadata variants */
