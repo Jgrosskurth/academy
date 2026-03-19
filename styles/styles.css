@@ -41,18 +41,18 @@
   --body-font-size-xs: 12px;
 
   /* heading sizes (mobile first) */
-  --heading-font-size-xxl: 28px;
-  --heading-font-size-xl: 24px;
-  --heading-font-size-l: 20px;
-  --heading-font-size-m: 18px;
-  --heading-font-size-s: 16px;
-  --heading-font-size-xs: 14px;
+  --heading-font-size-xxl: 24px;
+  --heading-font-size-xl: 20px;
+  --heading-font-size-l: 18px;
+  --heading-font-size-m: 16px;
+  --heading-font-size-s: 14px;
+  --heading-font-size-xs: 12px;
 
   /* nav */
   --nav-height: 64px;
 
   /* layout */
-  --section-max-width: 1440px;
+  --section-max-width: 1360px;
   --section-padding: 0 24px;
 
   /* buttons */
@@ -69,12 +69,12 @@
 
 @media (width >= 900px) {
   :root {
-    --heading-font-size-xxl: 36px;
-    --heading-font-size-xl: 28px;
-    --heading-font-size-l: 24px;
-    --heading-font-size-m: 20px;
-    --heading-font-size-s: 18px;
-    --heading-font-size-xs: 16px;
+    --heading-font-size-xxl: 28px;
+    --heading-font-size-xl: 22px;
+    --heading-font-size-l: 20px;
+    --heading-font-size-m: 18px;
+    --heading-font-size-s: 16px;
+    --heading-font-size-xs: 14px;
     --section-padding: 0 32px;
   }
 }
@@ -110,11 +110,11 @@ footer .footer[data-block-status="loaded"] {
 
 /* headings */
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0.6em;
+  margin-bottom: 0.2em;
   font-family: var(--heading-font-family);
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 600;
+  line-height: 1.25;
   scroll-margin: 40px;
   color: var(--color-brand-navy);
 }
@@ -144,7 +144,7 @@ pre {
 }
 
 main > div {
-  margin: 40px 16px;
+  margin: 24px 16px;
 }
 
 input, textarea, select, button {
@@ -271,7 +271,7 @@ main img {
 /* sections */
 main > .section {
   margin: 0;
-  padding: 40px 0;
+  padding: 24px 0;
 }
 
 main > .section > div {
@@ -283,6 +283,12 @@ main > .section > div {
 main > .section:first-of-type {
   margin-top: 0;
   padding-top: 0;
+}
+
+/* hide empty sections that have no visible content */
+main > .section:empty {
+  display: none;
+  padding: 0;
 }
 
 /* section metadata variants */
@@ -382,3 +388,25 @@ main .section.academy-red p {
     padding: var(--section-padding);
   }
 }
+
+/* stylelint-disable no-descending-specificity -- content pattern overrides after variant rules */
+
+/* section heading + "Shop All" link pattern */
+main > .section .default-content-wrapper h2 + p a:any-link,
+main > .section .default-content-wrapper h3 + p a:any-link {
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  color: var(--color-brand-blue);
+}
+
+/* full-width image links (promo banners) */
+main > .section > .default-content-wrapper > p > a:has(> img) {
+  display: block;
+}
+
+main > .section > .default-content-wrapper > p > a > img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* stylelint-enable no-descending-specificity */

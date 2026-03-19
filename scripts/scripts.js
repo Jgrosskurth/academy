@@ -181,6 +181,13 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+
+  // Post-decoration: hide sections that ended up empty after section-metadata processing
+  main.querySelectorAll(':scope > .section').forEach((section) => {
+    if (!section.childElementCount && !section.textContent.trim()) {
+      section.style.display = 'none';
+    }
+  });
 }
 
 /**
