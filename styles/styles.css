@@ -280,9 +280,12 @@ main > .section > div {
   padding: var(--section-padding);
 }
 
-/* hide empty sections that have no visible content */
+/* stylelint-disable no-descending-specificity -- empty section rules require this order */
+
+/* hide empty sections and promo sections with only empty links */
 main > .section:not(:has(> *)),
-main > .section:empty {
+main > .section:empty,
+main > .section:has(.default-content-wrapper:only-child > p:only-child > a:only-child:empty) {
   display: none;
   padding: 0;
 }
@@ -291,6 +294,8 @@ main > .section:first-of-type {
   margin-top: 0;
   padding-top: 0;
 }
+
+/* stylelint-enable no-descending-specificity */
 
 /* section metadata variants */
 main .section.light,
