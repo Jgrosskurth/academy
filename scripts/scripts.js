@@ -126,22 +126,17 @@ function cleanImportArtifacts(main) {
   });
 
   // Remove chatbot / Scout AI noise: truncate at "Need Help?" marker
+  // Only target non-link "Need Help?" text (skip legitimate nav links)
   main.querySelectorAll(':scope > div').forEach((section) => {
     const walker = document.createTreeWalker(section, NodeFilter.SHOW_TEXT);
     let node = walker.nextNode();
     while (node) {
-      if (node.textContent.includes('Need Help?')) {
-        // Remove this element and all subsequent siblings in the section
-        let el = node.parentElement;
-        while (el && el !== section) el = el.parentElement;
-        if (el === section) {
-          // Find the paragraph containing "Need Help?" and remove everything after it
-          let target = node.parentElement;
-          while (target && target.parentElement !== section) target = target.parentElement;
-          if (target) {
-            while (target.nextElementSibling) target.nextElementSibling.remove();
-            target.remove();
-          }
+      if (node.textContent.includes('Need Help?') && !node.parentElement.closest('a')) {
+        let target = node.parentElement;
+        while (target && target.parentElement !== section) target = target.parentElement;
+        if (target) {
+          while (target.nextElementSibling) target.nextElementSibling.remove();
+          target.remove();
         }
         break;
       }

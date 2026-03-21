@@ -40,12 +40,12 @@
   --body-font-size-s: 14px;
   --body-font-size-xs: 12px;
 
-  /* heading sizes (mobile first) */
-  --heading-font-size-xxl: 24px;
-  --heading-font-size-xl: 20px;
-  --heading-font-size-l: 18px;
-  --heading-font-size-m: 16px;
-  --heading-font-size-s: 14px;
+  /* heading sizes (mobile first — matches academy.com) */
+  --heading-font-size-xxl: 20px;
+  --heading-font-size-xl: 16px;
+  --heading-font-size-l: 14px;
+  --heading-font-size-m: 14px;
+  --heading-font-size-s: 12px;
   --heading-font-size-xs: 12px;
 
   /* nav */
@@ -113,8 +113,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0.6em;
   margin-bottom: 0.2em;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 700;
+  line-height: 1.2;
   scroll-margin: 40px;
   color: var(--color-brand-navy);
 }
@@ -127,7 +127,7 @@ h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
 p, dl, ol, ul, pre, blockquote {
-  margin-top: 0.8em;
+  margin-top: 0.5em;
   margin-bottom: 0.25em;
 }
 
@@ -144,7 +144,7 @@ pre {
 }
 
 main > div {
-  margin: 24px 16px;
+  margin: 0 16px;
 }
 
 input, textarea, select, button {
@@ -271,7 +271,7 @@ main img {
 /* sections */
 main > .section {
   margin: 0;
-  padding: 24px 0;
+  padding: 16px 0;
 }
 
 main > .section > div {
@@ -400,8 +400,8 @@ main .section.academy-red p {
 /* section heading + "Shop All" link pattern */
 main > .section .default-content-wrapper h2 + p a:any-link,
 main > .section .default-content-wrapper h3 + p a:any-link {
-  font-size: var(--body-font-size-s);
-  font-weight: 600;
+  font-size: var(--body-font-size-xs);
+  font-weight: 700;
   color: var(--color-brand-blue);
 }
 
@@ -412,7 +412,20 @@ main > .section > .default-content-wrapper > p > a:has(> img) {
 
 main > .section > .default-content-wrapper > p > a > img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 4px;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+/* hide empty promo links (no image, no text) */
+main > .section > .default-content-wrapper > p > a:empty {
+  display: none;
+}
+
+@media (width >= 900px) {
+  main > .section > .default-content-wrapper > p > a > img {
+    max-height: 400px;
+  }
 }
 
 /* stylelint-enable no-descending-specificity */

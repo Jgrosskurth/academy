@@ -53,11 +53,6 @@ function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
 }
 
-/**
- * Toggles all nav sections
- * @param {Element} sections The container element
- * @param {Boolean} expanded Whether the element should be expanded or collapsed
- */
 function toggleAllNavSections(sections, expanded = false) {
   if (!sections) return;
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
@@ -65,12 +60,6 @@ function toggleAllNavSections(sections, expanded = false) {
   });
 }
 
-/**
- * Toggles the entire nav
- * @param {Element} nav The container element
- * @param {Element} navSections The nav sections within the container element
- * @param {*} forceExpanded Optional param to force nav expand behavior when not null
- */
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
@@ -78,7 +67,6 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, 'false');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-  // enable nav dropdown keyboard accessibility
   if (navSections) {
     const navDrops = navSections.querySelectorAll('.nav-drop');
     if (isDesktop.matches) {
@@ -96,7 +84,6 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     }
   }
 
-  // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
     window.addEventListener('keydown', closeOnEscape);
     nav.addEventListener('focusout', closeOnFocusLost);
@@ -149,6 +136,27 @@ export default async function decorate(block) {
     });
   }
 
+  // Build search bar
+  const searchBar = document.createElement('div');
+  searchBar.className = 'nav-search';
+  searchBar.innerHTML = `<form action="/search" role="search" class="nav-search-form">
+    <input type="search" placeholder="What can we help you find?" aria-label="Search products">
+    <button type="submit" aria-label="Search"><img src="/icons/search.svg" alt="" loading="lazy" width="20" height="20"></button>
+  </form>`;
+  nav.insertBefore(searchBar, nav.querySelector('.nav-tools'));
+
+  // Build action icons (sign in + cart)
+  const navActions = document.createElement('div');
+  navActions.className = 'nav-actions';
+  navActions.innerHTML = `<a href="/shop/LogonForm" class="nav-sign-in" aria-label="Sign In">
+    <img src="/icons/user.svg" alt="" loading="lazy" width="24" height="24">
+    <span>Sign In</span>
+  </a>
+  <a href="/shop/cart" class="nav-cart" aria-label="Cart">
+    <img src="/icons/cart.svg" alt="" loading="lazy" width="24" height="24">
+  </a>`;
+  nav.append(navActions);
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -158,7 +166,6 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 

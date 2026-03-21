@@ -5,190 +5,180 @@
       "urls": [
         "https://www.academy.com/"
       ],
-      "description": "Academy Sports + Outdoors homepage with featured categories, promotions, and brand content",
+      "description": "Academy Sports + Outdoors homepage - full content with hero carousel, product carousels, promotional banners, brand showcases, and benefit cards",
       "blocks": [
         {
           "name": "hero",
           "instances": [
-            "div[class*='heroCarousel'], div[class*='hero-carousel']",
-            "div:has(a[href*='baseball'])"
+            "[data-testid='heroCarousel'], [class*='heroCarousel']",
+            "[class*='halfBanner']:has(a[href*='baseball'])"
           ]
         },
         {
           "name": "cards",
           "instances": [
-            "div[data-testid*='productCarousel']:nth-of-type(1), div[class*='carousel']:has(h2)",
-            "div[data-testid*='productCarousel']:nth-of-type(2)",
-            "div[data-testid*='productCarousel']:nth-of-type(3)",
-            "div[data-testid*='productCarousel']:nth-of-type(4)",
-            "div[class*='brandCarousel'], div:has(> a[href*='running-shoes'])",
-            "div[class*='newFinds'], div:has(a[href*='casual-shoes'])",
-            "div:has(img[alt*='Brazos brand logo'])",
-            "div:has(h3:has-text('$15 OFF AFTER YOU JOIN'))"
+            "[class*='productCarousel']:nth-of-type(1)",
+            "[class*='productCarousel']:nth-of-type(2)",
+            "[class*='productCarousel']:nth-of-type(3)",
+            "[class*='productCarousel']:nth-of-type(4)",
+            "[class*='brandCarousel']:has(a[href*='running'])",
+            "[class*='cardGrid']:has(a[href*='casual-shoes'])",
+            "[class*='brandLogos']:has(img[alt*='Brazos'])",
+            "[class*='serviceFeatures']:has(h3)"
           ]
         },
         {
           "name": "columns",
           "instances": [
-            "div:has(a[href*='ariat'])",
-            "div:has(a[href*='mlb'])",
-            "div:has(img[alt*='myAcademy Rewards'])",
-            "div:has(img[alt='Academy Sports'])"
+            "[class*='twoCards']:has(a[href*='ariat'])",
+            "[class*='twoCards']:has(a[href*='mlb'])",
+            "[class*='threeCol']:has(img[alt='Academy Sports'])"
           ]
         }
       ],
       "sections": [
         {
-          "id": "section-promo-banner",
-          "name": "Promotional Banner",
-          "selector": "section[aria-label='Buy More, Save More']",
-          "style": "dark",
+          "id": "S1",
+          "name": "Buy More Save More Promo Banner",
+          "selector": "[aria-label*='Buy More']",
+          "style": null,
           "blocks": [],
-          "defaultContent": [
-            "section[aria-label='Buy More, Save More'] a img"
-          ]
+          "defaultContent": ["[aria-label*='Buy More'] a"]
         },
         {
-          "id": "section-hero-carousel",
-          "name": "Hero Carousel",
-          "selector": "div[class*='heroCarousel'], div[class*='hero-carousel']",
+          "id": "S2",
+          "name": "Hero Carousel + Credit Card Promo",
+          "selector": "[aria-label*='Buy More'] ~ div:has([class*='heroCarousel'])",
           "style": null,
-          "blocks": [
-            "hero"
-          ],
+          "blocks": ["hero"],
+          "defaultContent": ["a[href*='myacademy-rewards-credit-card']"]
+        },
+        {
+          "id": "S3",
+          "name": "Today's Styles Product Carousel",
+          "selector": "[class*='productCarousel']:has(h2:text('Today'))",
+          "style": null,
+          "blocks": ["cards"],
           "defaultContent": []
         },
         {
-          "id": "section-price-match",
-          "name": "Price Match Guarantee",
-          "selector": "a[href='/price-match-guarantee']",
+          "id": "S4",
+          "name": "Top Shoes Product Carousel",
+          "selector": "[class*='productCarousel']:has(h2:text('Top Shoes'))",
           "style": null,
-          "blocks": [],
-          "defaultContent": [
-            "a[href='/price-match-guarantee'] img"
-          ]
-        },
-        {
-          "id": "section-product-carousels",
-          "name": "Product Carousels",
-          "selector": "div[data-testid*='productCarousel']",
-          "style": null,
-          "blocks": [
-            "cards"
-          ],
+          "blocks": ["cards"],
           "defaultContent": []
         },
         {
-          "id": "section-running-shoes",
+          "id": "S5",
+          "name": "Outdoor Essentials Product Carousel",
+          "selector": "[class*='productCarousel']:has(h2:text('Outdoor'))",
+          "style": null,
+          "blocks": ["cards"],
+          "defaultContent": []
+        },
+        {
+          "id": "S6",
+          "name": "Home & Recreation Product Carousel",
+          "selector": "[class*='productCarousel']:has(h2:text('Home'))",
+          "style": null,
+          "blocks": ["cards"],
+          "defaultContent": []
+        },
+        {
+          "id": "S7",
           "name": "Running Shoes Brand Showcase",
           "selector": "div:has(> a[href*='running-shoes'])",
-          "style": "light-gray",
-          "blocks": [
-            "cards"
-          ],
-          "defaultContent": [
-            "div:has(> a[href*='running-shoes']) h2"
-          ]
-        },
-        {
-          "id": "section-new-finds",
-          "name": "New Finds / Color Drops",
-          "selector": "div:has(> img[alt*='NEW FINDS'])",
           "style": null,
-          "blocks": [
-            "cards"
-          ],
-          "defaultContent": [
-            "div:has(> img[alt*='NEW FINDS']) > *:first-child"
-          ]
+          "blocks": ["cards"],
+          "defaultContent": ["a[href*='running-shoes'] > img"]
         },
         {
-          "id": "section-soccer",
-          "name": "Soccer Promo",
-          "selector": "a[href*='usa-soccer-gear']",
-          "style": "dark",
+          "id": "S8",
+          "name": "New Finds For You",
+          "selector": "div:has(a[href*='casual-shoes'])",
+          "style": null,
+          "blocks": ["cards"],
+          "defaultContent": []
+        },
+        {
+          "id": "S9",
+          "name": "Nike Soccer USA Banner",
+          "selector": "div:has(a[href*='usa-soccer-gear'])",
+          "style": null,
           "blocks": [],
-          "defaultContent": [
-            "a[href*='usa-soccer-gear'] img"
-          ]
+          "defaultContent": ["a[href*='usa-soccer-gear']"]
         },
         {
-          "id": "section-clearance",
+          "id": "S10",
           "name": "Clearance Banner",
-          "selector": "a[href*='clearance']",
+          "selector": "[aria-label*='Clearance']",
           "style": "yellow",
           "blocks": [],
-          "defaultContent": [
-            "a[href*='clearance'] img"
-          ]
+          "defaultContent": ["[aria-label*='Clearance'] a"]
         },
         {
-          "id": "section-baseball",
-          "name": "Baseball Promo",
-          "selector": "div:has(a[href*='baseball'])",
-          "style": "dark",
-          "blocks": [
-            "hero"
-          ],
+          "id": "S11",
+          "name": "Baseball Section",
+          "selector": "div:has(a[href*='/baseball'])",
+          "style": null,
+          "blocks": ["hero"],
           "defaultContent": []
         },
         {
-          "id": "section-workwear",
-          "name": "Workwear",
-          "selector": [
-            "section[aria-label*='workwear']",
-            "a[href*='workwear']"
-          ],
+          "id": "S12",
+          "name": "Workwear Banner",
+          "selector": "[aria-label*='workwear']",
           "style": "yellow",
-          "blocks": [
-            "columns",
-            "cards"
-          ],
-          "defaultContent": [
-            "h3:has-text('LOOKING FOR MORE BRANDS')",
-            "a[href*='workwear'] img"
-          ]
+          "blocks": [],
+          "defaultContent": ["[aria-label*='workwear'] a"]
         },
         {
-          "id": "section-fan-shop",
-          "name": "Trending for Fans",
-          "selector": "div:has(> img[alt*='TRENDING'])",
+          "id": "S13",
+          "name": "Workwear Brand Cards",
+          "selector": "div:has(a[href*='ariat']):has(a[href*='carhartt'])",
           "style": null,
-          "blocks": [
-            "columns"
-          ],
-          "defaultContent": [
-            "div:has(> img[alt*='TRENDING']) > *:first-child"
-          ]
-        },
-        {
-          "id": "section-rewards",
-          "name": "More Savings / Rewards",
-          "selector": "div:has(img[alt*='myAcademy Rewards'])",
-          "style": "academy-red",
-          "blocks": [
-            "columns"
-          ],
+          "blocks": ["columns"],
           "defaultContent": []
         },
         {
-          "id": "section-app-card-text",
-          "name": "App / Credit Card / Text Signup",
-          "selector": "div:has(img[alt='Academy Sports'])",
+          "id": "S14",
+          "name": "Workwear Brand Logos",
+          "selector": "div:has(h3:text('LOOKING FOR MORE BRANDS'))",
           "style": null,
-          "blocks": [
-            "columns"
-          ],
+          "blocks": ["cards"],
+          "defaultContent": ["h3:text('LOOKING FOR MORE BRANDS')"]
+        },
+        {
+          "id": "S15",
+          "name": "Trending For Fans",
+          "selector": "div:has(a[href*='mlb']):has(a[href*='ncaa'])",
+          "style": null,
+          "blocks": ["columns"],
           "defaultContent": []
         },
         {
-          "id": "section-service-features",
-          "name": "Service Features",
-          "selector": "div:has(h3:has-text('$15 OFF AFTER YOU JOIN'))",
+          "id": "S16",
+          "name": "More Savings More Fun",
+          "selector": "div:has(h2:text('More Savings'))",
+          "style": null,
+          "blocks": [],
+          "defaultContent": ["h2:text('More Savings')", "a[href*='myacademy-rewards'] img"]
+        },
+        {
+          "id": "S17",
+          "name": "App + Price Match + SMS Signup",
+          "selector": "div:has(img[alt='Academy Sports']):has(img[alt*='Undefeatable'])",
+          "style": null,
+          "blocks": ["columns"],
+          "defaultContent": []
+        },
+        {
+          "id": "S18",
+          "name": "Benefits Cards",
+          "selector": "div:has(h3:text('$15 OFF'))",
           "style": "light-gray",
-          "blocks": [
-            "cards"
-          ],
+          "blocks": ["cards"],
           "defaultContent": []
         }
       ]

@@ -7,7 +7,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 8px;
 }
 
 .cards > ul > li {
@@ -23,11 +23,11 @@
 }
 
 .cards .cards-card-body {
-  padding: 8px 10px;
+  padding: 6px 8px;
 }
 
 .cards .cards-card-body h3 {
-  font-size: var(--body-font-size-xs);
+  font-size: 11px;
   font-weight: 400;
   color: var(--color-text);
   margin: 0;
@@ -39,10 +39,10 @@
 }
 
 .cards .cards-card-body p {
-  font-size: var(--body-font-size-xs);
+  font-size: 11px;
   color: var(--color-text-muted);
-  margin: 4px 0 0;
-  line-height: 1.4;
+  margin: 2px 0 0;
+  line-height: 1.3;
 }
 
 .cards .cards-card-image {
@@ -50,40 +50,62 @@
   background-color: var(--color-white);
 }
 
+/* hide empty card body sections (import artifacts) */
+.cards .cards-card-body:empty {
+  display: none;
+}
+
 .cards > ul > li img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  padding: 8px;
+  padding: 4px;
   background-color: var(--color-white);
-  max-height: 180px;
+  max-height: 160px;
 }
 
 /* cards with only text (no images) - brand logo / link cards */
+.cards > ul:has(> li:not(:has(.cards-card-image))) {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.cards > ul:has(> li:not(:has(.cards-card-image)))::-webkit-scrollbar {
+  display: none;
+}
+
 .cards > ul > li:not(:has(.cards-card-image)) {
   display: flex;
   align-items: center;
-  min-height: 56px;
+  min-height: 36px;
   background-color: var(--color-yellow);
   border: none;
-  border-radius: 24px;
+  border-radius: 20px;
+  flex: 0 0 auto;
 }
 
 .cards > ul > li:not(:has(.cards-card-image)) .cards-card-body {
-  padding: 10px 16px;
+  padding: 8px 14px;
   text-align: center;
-  width: 100%;
+  white-space: nowrap;
 }
 
 .cards > ul > li:not(:has(.cards-card-image)) .cards-card-body a {
   color: var(--color-black);
   font-weight: 700;
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
 }
+
+/* stylelint-disable no-descending-specificity -- section variant overrides follow base styles */
 
 /* cards with small icon images (benefits/rewards cards) */
 .light-gray .cards > ul {
-  gap: 16px;
+  gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .light-gray .cards > ul > li {
@@ -92,28 +114,43 @@
   border-radius: 8px;
   box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.light-gray .cards > ul > li .cards-card-image {
+  flex: 0 0 40px;
 }
 
 .light-gray .cards > ul > li img {
-  max-height: 48px;
+  max-height: 32px;
   aspect-ratio: auto;
   object-fit: contain;
-  padding: 12px;
-  width: auto;
-  margin: 0 auto;
+  padding: 6px;
+  width: 40px;
   display: block;
 }
 
+.light-gray .cards .cards-card-body {
+  text-align: left;
+  padding: 6px 6px 6px 0;
+}
+
 .light-gray .cards .cards-card-body h3 {
-  font-size: var(--body-font-size-s);
+  font-size: 10px;
   font-weight: 700;
   color: var(--color-brand-navy);
   text-transform: uppercase;
+  -webkit-line-clamp: 3;
 }
 
 .light-gray .cards .cards-card-body p {
-  font-size: var(--body-font-size-xs);
+  font-size: 9px;
 }
+
+/* stylelint-enable no-descending-specificity */
 
 @media (width >= 600px) {
   .cards > ul {
@@ -144,7 +181,27 @@
     max-height: 220px;
   }
 
+  .light-gray .cards > ul > li {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .light-gray .cards > ul > li .cards-card-image {
+    flex: 0 0 auto;
+  }
+
   .light-gray .cards > ul > li img {
     max-height: 40px;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .light-gray .cards .cards-card-body {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .light-gray .cards .cards-card-body h3 {
+    font-size: var(--body-font-size-xs);
   }
 }

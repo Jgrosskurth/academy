@@ -2,24 +2,16 @@
    Responsive column layout matching Academy.com's content sections */
 
 .columns > div {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
 }
 
 .columns img {
   width: 100%;
-  border-radius: 8px;
-  max-height: 300px;
+  border-radius: 4px;
+  max-height: 160px;
   object-fit: cover;
-}
-
-.columns > div > div {
-  order: 1;
-}
-
-.columns > div > .columns-img-col {
-  order: 0;
 }
 
 .columns > div > .columns-img-col img {
@@ -31,49 +23,62 @@
   color: var(--color-brand-navy);
 }
 
+.columns h3 {
+  font-size: var(--heading-font-size-l);
+  margin: 0 0 4px;
+}
+
 .columns p {
   color: var(--color-text);
-  line-height: 1.5;
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
+  margin: 2px 0;
 }
 
 /* multi-column layout for 3+ columns (app/credit card/SMS section) */
 .columns > div:has(> :nth-child(3)) {
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
 
 .columns > div:has(> :nth-child(3)) > div {
   text-align: center;
   border: 1px solid var(--color-grey);
   border-radius: 8px;
-  padding: 24px 16px;
+  padding: 12px 8px;
 }
 
 .columns > div:has(> :nth-child(3)) img {
-  max-height: 64px;
+  max-height: 36px;
   width: auto;
-  margin: 0 auto 12px;
+  margin: 0 auto 4px;
   display: block;
   object-fit: contain;
 }
 
 .columns > div:has(> :nth-child(3)) h3 {
-  font-size: var(--body-font-size-m);
-  margin: 8px 0;
+  font-size: 11px;
+  margin: 2px 0;
 }
 
 .columns > div:has(> :nth-child(3)) p {
-  font-size: var(--body-font-size-s);
+  font-size: 10px;
 }
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
-    flex-direction: unset;
     gap: 24px;
   }
 
-  .columns > div > div {
-    flex: 1;
-    order: unset;
+  .columns img {
+    max-height: 300px;
+  }
+
+  .columns h3 {
+    font-size: var(--heading-font-size-m);
+  }
+
+  .columns p {
+    font-size: var(--body-font-size-s);
   }
 }

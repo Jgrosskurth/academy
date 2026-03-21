@@ -1,17 +1,16 @@
 /* Academy Sports + Outdoors Footer
-   Original: blue background (#1946c8), white text, accordion sections on mobile */
+   Blue background, white text, 4-column link grid on desktop,
+   accordion sections on mobile, helper links, social icons, legal bar */
 
 footer {
   background-color: var(--color-brand-blue);
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
   color: var(--color-white);
 }
 
 footer .footer > div {
-  margin: auto;
+  margin: 0 auto;
   max-width: var(--section-max-width);
-  padding: 32px 24px;
 }
 
 footer .footer p {
@@ -20,208 +19,269 @@ footer .footer p {
 }
 
 /* ============================================================
-   Link columns
+   Section base styles
    ============================================================ */
-footer .footer .default-content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
+footer .section {
+  padding: 0 16px;
 }
 
-footer .footer .default-content-wrapper ul {
+footer .section h3 {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--color-white);
+  margin: 0;
+  padding: 16px 0;
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+}
+
+footer .section ul {
   list-style: none;
   margin: 0;
-  padding: 0;
-  border-top: 1px solid rgb(255 255 255 / 20%);
+  padding: 8px 0;
 }
 
-footer .footer .default-content-wrapper ul:last-of-type {
-  border-top: none;
-  padding-top: 16px;
-  margin-top: 8px;
+footer .section li {
+  padding: 4px 0;
 }
 
-/* footer link items */
-footer .footer .default-content-wrapper ul > li {
-  padding: 6px 0;
-}
-
-/* stylelint-disable no-descending-specificity -- footer link specificity needed */
-footer .footer .default-content-wrapper ul > li a:any-link {
+/* stylelint-disable no-descending-specificity */
+footer .section a:any-link {
   color: var(--color-white);
   font-family: var(--body-font-family);
-  font-size: var(--body-font-size-xs);
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   text-decoration: none;
   transition: opacity var(--transition-base);
 }
 
-footer .footer .default-content-wrapper ul > li a:hover {
+footer .section a:hover {
   opacity: 0.8;
   text-decoration: underline;
 }
 
-/* column headings */
-footer .footer .default-content-wrapper ul > li:first-child {
-  padding: 16px 0 8px;
+/* stylelint-enable no-descending-specificity */
+
+/* ============================================================
+   Mobile accordion behavior
+   ============================================================ */
+footer .footer-accordion-toggle {
+  cursor: pointer;
+  position: relative;
+  user-select: none;
 }
 
-footer .footer .default-content-wrapper ul > li:first-child h6 {
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
-  font-weight: 700;
-  line-height: 1.2;
+footer .footer-accordion-toggle::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: 300;
   color: var(--color-white);
-  margin: 0;
+}
+
+footer .footer-accordion-toggle[aria-expanded='true']::after {
+  content: '\2212';
+}
+
+/* Hide list when accordion is collapsed */
+footer .footer-accordion-toggle[aria-expanded='false'] ~ ul {
+  display: none;
+}
+
+/* stylelint-disable no-descending-specificity -- section overrides follow base styles */
+
+/* ============================================================
+   Download Our App section
+   ============================================================ */
+footer .footer-app h3 {
+  border-bottom: none;
+  padding-bottom: 8px;
+}
+
+footer .footer-app ul {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  gap: 12px;
+  padding: 0 0 16px;
 }
 
-footer .footer .default-content-wrapper ul > li:first-child h6 a {
-  color: var(--color-white);
+footer .footer-app li {
+  padding: 0;
+}
+
+footer .footer-app a {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid rgb(255 255 255 / 60%);
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: background-color var(--transition-base), opacity var(--transition-base);
+}
+
+footer .footer-app a:hover {
+  background-color: rgb(255 255 255 / 10%);
   text-decoration: none;
 }
 
-footer .footer .default-content-wrapper ul > li:first-child h6 a:hover {
-  opacity: 0.8;
+/* ============================================================
+   Links section — helper links + social icons
+   ============================================================ */
+footer .footer-links {
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  margin-top: 8px;
+  padding-top: 16px;
 }
 
-/* stylelint-enable no-descending-specificity */
+footer .footer-links ul {
+  padding: 8px 0;
+}
 
-/* external link icon */
-footer .footer .default-content-wrapper ul > li a .icon {
-  display: inline-block;
+/* Helper links (first ul — Need Help?, Find A Store, Expert Advice) */
+footer .footer-links .default-content-wrapper > ul:first-of-type {
+  display: flex;
+  gap: 24px;
+}
+
+footer .footer-links .default-content-wrapper > ul:first-of-type a {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Social icons (second ul) */
+footer .footer-links .default-content-wrapper > ul:last-of-type {
+  display: flex;
+  gap: 32px;
+}
+
+footer .footer-links .footer-social-icon {
   width: 16px;
   height: 16px;
-  vertical-align: middle;
-  margin-left: 4px;
+  filter: brightness(0) invert(1);
+  display: block;
 }
 
-/* social media links */
-footer .footer .default-content-wrapper ul > li a img {
-  width: 18px;
-  height: 18px;
-  vertical-align: middle;
-  margin-left: 6px;
+/* ============================================================
+   Legal section — legal links + copyright
+   ============================================================ */
+footer .footer-legal {
+  border-top: 1px solid rgb(255 255 255 / 20%);
+  padding-top: 16px;
+  padding-bottom: 24px;
+}
+
+/* Legal links list — 2-column grid on mobile */
+footer .footer-legal ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 16px;
+  padding: 0 0 12px;
+}
+
+footer .footer-legal li {
+  padding: 2px 0;
+}
+
+footer .footer-legal li a {
+  font-size: 10px;
+}
+
+/* Copyright text */
+footer .footer-legal p {
+  font-size: 8px;
+  text-transform: uppercase;
+  color: var(--color-white);
   opacity: 0.8;
 }
 
 /* ============================================================
-   Copyright bar — bottom of footer
-   ============================================================ */
-footer .footer .section:last-child {
-  border-top: 1px solid rgb(255 255 255 / 20%);
-  margin-top: 24px;
-  padding-top: 24px;
-}
-
-footer .footer .section:last-child .default-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-footer .footer .section:last-child img {
-  width: 140px;
-  height: auto;
-}
-
-footer .footer .section:last-child p {
-  font-size: var(--body-font-size-xs);
-  color: rgb(255 255 255 / 70%);
-  text-align: center;
-  margin: 0;
-}
-
-footer .footer .section:last-child ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-footer .footer .section:last-child ul li {
-  font-size: var(--body-font-size-xs);
-}
-
-footer .footer .section:last-child ul li::after {
-  content: '|';
-  margin-left: 8px;
-  color: rgb(255 255 255 / 40%);
-}
-
-footer .footer .section:last-child ul li:last-child::after {
-  content: none;
-}
-
-/* stylelint-disable no-descending-specificity -- different DOM context: copyright vs column links */
-footer .footer .section:last-child ul li a:any-link {
-  color: rgb(255 255 255 / 70%);
-  font-size: var(--body-font-size-xs);
-  text-decoration: none;
-}
-
-footer .footer .section:last-child ul li a:hover {
-  color: var(--color-white);
-}
-
-/* stylelint-enable no-descending-specificity */
-
-/* ============================================================
-   Desktop — multi-column + horizontal copyright bar
+   Desktop — 4-column grid layout
    ============================================================ */
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 48px 32px 24px;
-  }
-
-  footer .footer .default-content-wrapper {
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0 32px;
+    padding: 32px;
   }
 
-  footer .footer .default-content-wrapper ul {
-    border-top: none;
+  footer .section {
+    padding: 0;
   }
 
-  footer .footer .default-content-wrapper ul > li:first-child {
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgb(255 255 255 / 20%);
-    margin-bottom: 8px;
-  }
-
-  footer .footer .default-content-wrapper ul:last-of-type {
-    grid-column: 1 / -1;
-    padding-top: 24px;
-    margin-top: 16px;
-  }
-
-  footer .footer .default-content-wrapper ul:last-of-type > li:first-child {
+  /* Headings — bold, uppercase, no border on desktop */
+  footer .section h3 {
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 0 0 12px;
     border-bottom: none;
+  }
+
+  /* Remove accordion indicator on desktop */
+  footer .footer-accordion-toggle::after {
+    display: none;
+  }
+
+  /* App section */
+  footer .footer-app ul {
     padding-bottom: 0;
-    margin-bottom: 0;
   }
 
-  footer .footer .section:last-child .default-content-wrapper {
+  /* Links section spans all 4 columns */
+  footer .footer-links {
+    grid-column: 1 / -1;
     display: flex;
-    flex-flow: row wrap;
     align-items: center;
-    justify-content: flex-start;
-    gap: 12px 16px;
+    margin-top: 24px;
+    padding: 24px 0 0;
   }
 
-  footer .footer .section:last-child p {
-    text-align: left;
+  footer .footer-links .default-content-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 
-  footer .footer .section:last-child ul {
-    justify-content: flex-end;
+  footer .footer-links .default-content-wrapper > ul:first-of-type {
+    flex: 1;
+  }
+
+  footer .footer-links .default-content-wrapper > ul:last-of-type {
     margin-left: auto;
+  }
+
+  /* Legal section spans all 4 columns */
+  footer .footer-legal {
+    grid-column: 1 / -1;
+    padding-bottom: 32px;
+  }
+
+  /* Legal links as horizontal row with pipe separators */
+  footer .footer-legal ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    padding-bottom: 12px;
+  }
+
+  footer .footer-legal li {
+    padding: 0;
+  }
+
+  footer .footer-legal li::after {
+    content: '|';
+    margin: 0 8px;
+    color: rgb(255 255 255 / 40%);
+    font-size: 10px;
+  }
+
+  footer .footer-legal li:last-child::after {
+    content: none;
   }
 }

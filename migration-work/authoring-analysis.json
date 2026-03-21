@@ -1,231 +1,321 @@
 {
   "url": "https://www.academy.com/",
-  "timestamp": "2026-03-18T17:35:26.237Z",
+  "timestamp": "2026-03-19T21:00:00.000Z",
+  "note": "Re-analysis v2 - comprehensive authoring decisions with all dynamic content captured",
   "sections": [
     {
-      "id": "section-promo-banner",
-      "name": "Promotional Banner",
-      "style": "dark",
+      "id": "S1",
+      "name": "Buy More Save More Promo Banner",
+      "style": null,
       "sequences": [
         {
+          "id": "S1-C1",
           "decision": "default-content",
-          "description": "Linked banner image with promo text - author creates linked image in default content",
-          "selector": "section[aria-label='Buy More, Save More']"
+          "description": "Full-width linked banner image (Buy More Save More promo). Author creates image wrapped in link.",
+          "image": "content/images/banner-buy-more.png",
+          "link": "/c/shops/promo-offers/fw-promo-offer-18"
+        },
+        {
+          "id": "S1-C2",
+          "decision": "default-content",
+          "description": "Disclaimer paragraph: 'Discount applied in cart. Online Only. Exclusions apply' with link to /disclaimers"
         }
       ]
     },
     {
-      "id": "section-hero-carousel",
-      "name": "Hero Carousel",
+      "id": "S2",
+      "name": "Hero Carousel + Credit Card Promo",
       "style": null,
       "sequences": [
         {
+          "id": "S2-C1",
           "decision": "block",
           "blockName": "hero",
-          "description": "Full-width hero carousel with rotating promotional slides and pagination dots",
-          "selector": "div[class*='heroCarousel'], div[class*='hero-carousel']"
-        }
-      ]
-    },
-    {
-      "id": "section-price-match",
-      "name": "Price Match Guarantee",
-      "style": null,
-      "sequences": [
+          "description": "Hero carousel with 4 Easter/Spring promotional slides. Each slide is a linked image. Carousel has navigation dots and play/pause.",
+          "images": ["content/images/carousel-1-easter.png", "content/images/carousel-2-backyard.png", "content/images/carousel-3-easter-look.png", "content/images/carousel-4-level-up.png"],
+          "links": ["/c/shops/easter-essentials", "/c/shops/promo-offers/snr-promo-offer-14", "/c/shops/easter-essentials#easter-looks", "/c/shops/easter-essentials#easter-slider"]
+        },
         {
+          "id": "S2-C2",
           "decision": "default-content",
-          "description": "Simple linked banner image - author creates image wrapped in link",
-          "selector": "a[href='/price-match-guarantee']"
+          "description": "myAcademy Rewards $30 OFF credit card promo - linked image beside the hero carousel",
+          "image": "content/images/banner-credit-card.png",
+          "link": "/myacademy-rewards-credit-card"
         }
       ]
     },
     {
-      "id": "section-product-carousels",
-      "name": "Product Carousels",
+      "id": "S3",
+      "name": "Today's Styles Product Carousel",
       "style": null,
       "sequences": [
         {
+          "id": "S3-C1",
           "decision": "block",
           "blockName": "cards",
-          "description": "Today's Styles - horizontal product card carousel with H2 heading, Shop All link, product image+name cards",
-          "selector": "div[data-testid*='productCarousel']:nth-of-type(1), div[class*='carousel']:has(h2)"
-        },
-        {
-          "decision": "block",
-          "blockName": "cards",
-          "description": "Top Shoes - same product carousel pattern",
-          "selector": "div[data-testid*='productCarousel']:nth-of-type(2)"
-        },
-        {
-          "decision": "block",
-          "blockName": "cards",
-          "description": "Outdoor Essentials - same product carousel pattern",
-          "selector": "div[data-testid*='productCarousel']:nth-of-type(3)"
-        },
-        {
-          "decision": "block",
-          "blockName": "cards",
-          "description": "Home & Recreation - same product carousel pattern",
-          "selector": "div[data-testid*='productCarousel']:nth-of-type(4)"
+          "description": "Product cards with H2 heading 'Today's Styles', 'Shop All' link, and 4 product image+name cards with 'new' badges",
+          "heading": "Today's Styles",
+          "shopAllLink": "https://www.academy.com/c/apparel?&orderBy=topSeller",
+          "productCount": 4
         }
       ]
     },
     {
-      "id": "section-running-shoes",
+      "id": "S4",
+      "name": "Top Shoes Product Carousel",
+      "style": null,
+      "sequences": [
+        {
+          "id": "S4-C1",
+          "decision": "block",
+          "blockName": "cards",
+          "description": "Product cards with H2 'Top Shoes' heading, 4 footwear product cards",
+          "heading": "Top Shoes",
+          "shopAllLink": "https://www.academy.com/c/footwear?&orderBy=topSeller",
+          "productCount": 4
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "Outdoor Essentials Product Carousel",
+      "style": null,
+      "sequences": [
+        {
+          "id": "S5-C1",
+          "decision": "block",
+          "blockName": "cards",
+          "description": "Product cards with H2 'Outdoor Essentials' heading, 4 outdoor product cards",
+          "heading": "Outdoor Essentials",
+          "shopAllLink": "https://www.academy.com/c/outdoors?&orderBy=topSeller",
+          "productCount": 4
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "name": "Home & Recreation Product Carousel",
+      "style": null,
+      "sequences": [
+        {
+          "id": "S6-C1",
+          "decision": "block",
+          "blockName": "cards",
+          "description": "Product cards with H2 'Home & Recreation' heading, 4 home/outdoor product cards",
+          "heading": "Home & Recreation",
+          "shopAllLink": "https://www.academy.com/c/home-backyard?&orderBy=topSeller",
+          "productCount": 4
+        }
+      ]
+    },
+    {
+      "id": "S7",
       "name": "Running Shoes Brand Showcase",
-      "style": "light-gray",
-      "sequences": [
-        {
-          "decision": "default-content",
-          "description": "GET ON TRACK stylized heading with subtitle",
-          "selector": "div[class*='running'] h2, div:has(> a[href*='running-shoes']) > div:first-child"
-        },
-        {
-          "decision": "block",
-          "blockName": "cards",
-          "description": "Brand shoe image cards in horizontal carousel (Nike, ASICS, Brooks, adidas, New Balance)",
-          "selector": "div[class*='brandCarousel'], div:has(> a[href*='running-shoes'])"
-        }
-      ]
-    },
-    {
-      "id": "section-new-finds",
-      "name": "New Finds / Color Drops",
       "style": null,
       "sequences": [
         {
+          "id": "S7-C1",
           "decision": "default-content",
-          "description": "NEW FINDS FOR YOU stylized heading",
-          "selector": "div:has(> img[alt*='NEW FINDS'])"
+          "description": "Section heading banner image linking to running shoes category",
+          "link": "/c/footwear/athletic-shoes-sneakers/running-shoes"
         },
         {
+          "id": "S7-C2",
           "decision": "block",
           "blockName": "cards",
-          "description": "Mixed content cards with video play buttons and text overlays for new products/color drops",
-          "selector": "div[class*='newFinds'], div:has(a[href*='casual-shoes'])"
+          "description": "5 brand lifestyle cards: running shoe close-up photos with brand identity. Nike has 'GIFT WITH PURCHASE' badge overlay.",
+          "cardCount": 5,
+          "brands": ["Nike", "ASICS", "Brooks", "adidas", "New Balance"]
+        },
+        {
+          "id": "S7-C3",
+          "decision": "default-content",
+          "description": "Fit clinics banner image (full-width linked banner)",
+          "image": "content/images/banner-fit-clinics.png"
         }
       ]
     },
     {
-      "id": "section-soccer",
-      "name": "Soccer Promo",
-      "style": "dark",
+      "id": "S8",
+      "name": "New Finds For You",
+      "style": null,
       "sequences": [
         {
+          "id": "S8-C1",
           "decision": "default-content",
-          "description": "Full-width Nike Soccer USA kit promotional linked image - simple image+link default content",
-          "selector": "a[href*='usa-soccer-gear']"
+          "description": "'NEW FINDS for YOU' section heading (decorative text/image)"
+        },
+        {
+          "id": "S8-C2",
+          "decision": "block",
+          "blockName": "cards",
+          "description": "3 promotional lifestyle cards with text overlays and images: Birkenstock sandals (Spring Color Drop), Owala bottles (New Color Drop), Turtlebox speakers (Fighting Lady Yellow)",
+          "cardCount": 3
         }
       ]
     },
     {
-      "id": "section-clearance",
+      "id": "S9",
+      "name": "Nike Soccer USA Banner",
+      "style": null,
+      "sequences": [
+        {
+          "id": "S9-C1",
+          "decision": "default-content",
+          "description": "'THE WORLD IS WATCHING' decorative heading"
+        },
+        {
+          "id": "S9-C2",
+          "decision": "default-content",
+          "description": "Full-width Nike Soccer USA banner - linked image",
+          "image": "content/images/banner-nike-soccer.png",
+          "link": "/c/fan-shop/national-soccer/usa-soccer-gear"
+        }
+      ]
+    },
+    {
+      "id": "S10",
       "name": "Clearance Banner",
       "style": "yellow",
       "sequences": [
         {
+          "id": "S10-C1",
           "decision": "default-content",
-          "description": "Clearance promotional banner - linked image default content",
-          "selector": "section[aria-label*='Clearance'], a[href*='clearance']"
+          "description": "Yellow clearance banner - full-width linked image",
+          "image": "content/images/banner-clearance.png",
+          "link": "/c/academy-clearance/clothing-shoes-clearance"
         }
       ]
     },
     {
-      "id": "section-baseball",
-      "name": "Baseball Promo",
-      "style": "dark",
+      "id": "S11",
+      "name": "Baseball Section",
+      "style": null,
       "sequences": [
         {
+          "id": "S11-C1",
+          "decision": "default-content",
+          "description": "'LET'S PLAY BALL' decorative heading"
+        },
+        {
+          "id": "S11-C2",
           "decision": "block",
           "blockName": "hero",
-          "description": "Background image with overlay text heading and Shop Baseball CTA link",
-          "selector": "div:has(a[href*='baseball'])"
+          "description": "Background lifestyle photo with text overlay: 'Gear That Goes The Distance / Shop Baseball'",
+          "image": "content/images/baseball-hero.png",
+          "link": "/c/sports/baseball"
         }
       ]
     },
     {
-      "id": "section-workwear",
-      "name": "Workwear",
+      "id": "S12",
+      "name": "Workwear Banner",
       "style": "yellow",
       "sequences": [
         {
+          "id": "S12-C1",
           "decision": "default-content",
-          "description": "Workwear banner - The Right Gear for the Job linked image",
-          "selector": "section[aria-label*='workwear'], a[href*='workwear']"
-        },
+          "description": "Yellow workwear banner - full-width linked image with caution stripe",
+          "image": "content/images/banner-workwear.png",
+          "link": "/c/shops/workwear-clothing-boots"
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "name": "Workwear Brand Cards",
+      "style": null,
+      "sequences": [
         {
+          "id": "S13-C1",
           "decision": "block",
           "blockName": "columns",
-          "description": "Two side-by-side deal cards: ARIAT $20 off, Brazos $20 off with images and text overlays",
-          "selector": "div:has(a[href*='ariat'])"
-        },
+          "description": "Two side-by-side promo cards: ARIAT ($20 OFF) and Carhartt (25% OFF) with lifestyle photos and discount text overlays",
+          "cardCount": 2
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "name": "Workwear Brand Logos",
+      "style": null,
+      "sequences": [
         {
+          "id": "S14-C1",
           "decision": "default-content",
-          "description": "LOOKING FOR MORE BRANDS? heading",
-          "selector": "h3:has-text('LOOKING FOR MORE BRANDS')"
+          "description": "H3 heading 'LOOKING FOR MORE BRANDS?'"
         },
         {
+          "id": "S14-C2",
           "decision": "block",
           "blockName": "cards",
-          "description": "Brand logo carousel with 5 logos (Brazos, Levi's, Wolverine, Wrangler, Justin) linking to brand pages",
-          "selector": "div:has(img[alt*='Brazos brand logo'])"
+          "description": "5 brand logo pill buttons on yellow background: Brazos, Levi's, Wolverine, Wrangler, Justin Boots. Each links to brand page.",
+          "cardCount": 5
         }
       ]
     },
     {
-      "id": "section-fan-shop",
-      "name": "Trending for Fans",
+      "id": "S15",
+      "name": "Trending For Fans",
       "style": null,
       "sequences": [
         {
+          "id": "S15-C1",
           "decision": "default-content",
-          "description": "TRENDING FOR FANS stylized heading",
-          "selector": "div:has(> img[alt*='TRENDING'])"
+          "description": "'TRENDING for FANS' decorative heading"
         },
         {
+          "id": "S15-C2",
           "decision": "block",
           "blockName": "columns",
-          "description": "Two promo cards side by side: MLB Opening Day, NCAA March Tournament with text overlays and video",
-          "selector": "div:has(a[href*='mlb'])"
+          "description": "Two promo cards: MLB Opening Day (stadium crowd photo) and NCAA Tournament (video card)",
+          "cardCount": 2
         }
       ]
     },
     {
-      "id": "section-rewards",
-      "name": "More Savings / Rewards",
-      "style": "academy-red",
-      "sequences": [
-        {
-          "decision": "block",
-          "blockName": "columns",
-          "description": "myAcademy Rewards signup with logo, 3 benefit icons ($15 off, $25 reward, $15 birthday), Join for Free CTA",
-          "selector": "div:has(img[alt*='myAcademy Rewards'])"
-        }
-      ]
-    },
-    {
-      "id": "section-app-card-text",
-      "name": "App / Credit Card / Text Signup",
+      "id": "S16",
+      "name": "More Savings More Fun",
       "style": null,
       "sequences": [
         {
-          "decision": "block",
-          "blockName": "columns",
-          "description": "Three-column layout: App download (logo + store links + QR), Credit card promo (card image + benefits + CTA), Text signup (MVP text + legal)",
-          "selector": "div:has(img[alt='Academy Sports'])"
+          "id": "S16-C1",
+          "decision": "default-content",
+          "description": "H2 heading 'More Savings, More Fun'"
+        },
+        {
+          "id": "S16-C2",
+          "decision": "default-content",
+          "description": "myAcademy Rewards full-width banner image with $15 off and $30 off offers",
+          "image": "content/images/banner-rewards.png",
+          "link": "/myacademy-rewards"
         }
       ]
     },
     {
-      "id": "section-service-features",
-      "name": "Service Features",
+      "id": "S17",
+      "name": "App + Price Match + SMS Signup",
+      "style": null,
+      "sequences": [
+        {
+          "id": "S17-C1",
+          "decision": "block",
+          "blockName": "columns",
+          "description": "Three-column layout: App download (icon + badges + QR), Undefeatable Prices (price match guarantee), SMS signup (Text MVP to 22369)"
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "name": "Benefits Cards",
       "style": "light-gray",
       "sequences": [
         {
+          "id": "S18-C1",
           "decision": "block",
           "blockName": "cards",
-          "description": "Four service feature cards: $15 Off Join, Free Shipping, Same Day Delivery, 1-Hour Pickup - each with icon, heading, description, link",
-          "selector": "div:has(h3:has-text('$15 OFF AFTER YOU JOIN'))"
+          "description": "4 benefit cards with icon, bold title, description, and 'See Details' link: $15 OFF join, Free Shipping, Same Day Delivery, Free 1-Hour Pick Up",
+          "cardCount": 4
         }
       ]
     }
@@ -233,21 +323,20 @@
   "blockSummary": {
     "hero": {
       "count": 2,
-      "description": "Used for hero carousel and baseball promo with background image"
+      "sections": ["S2", "S11"],
+      "description": "Used for hero carousel and baseball promo with background image overlay"
     },
     "cards": {
-      "count": 7,
-      "description": "Used for product carousels, brand showcases, brand logos, new finds, and service features"
+      "count": 8,
+      "sections": ["S3", "S4", "S5", "S6", "S7", "S8", "S14", "S18"],
+      "description": "Used for product carousels, brand showcases, new finds lifestyle cards, brand logos, and benefit cards"
     },
     "columns": {
-      "count": 4,
-      "description": "Used for deal cards, fan shop promos, rewards section, and app/card/text three-column layout"
+      "count": 3,
+      "sections": ["S13", "S15", "S17"],
+      "description": "Used for two-column promo cards (workwear brands, fan shop) and three-column info layout"
     }
   },
-  "defaultContentSections": [
-    "section-promo-banner",
-    "section-price-match",
-    "section-soccer",
-    "section-clearance"
-  ]
+  "defaultContentSections": ["S1", "S9", "S10", "S12", "S16"],
+  "defaultContentDescription": "Full-width banner images (Buy More, Nike Soccer, Clearance, Workwear, Rewards) are simple linked images - best as default content for easy author editing"
 }

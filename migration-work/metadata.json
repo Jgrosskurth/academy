@@ -1,6 +1,6 @@
 {
   "url": "https://www.academy.com/",
-  "timestamp": "2026-03-18T17:33:38.578Z",
+  "timestamp": "2026-03-19T21:00:00.000Z",
   "paths": {
     "documentPath": "/index",
     "htmlFilePath": "/index.plain.html",
@@ -8,6 +8,7 @@
     "dirPath": "",
     "filename": "index"
   },
+  "previewPath": "content/index",
   "screenshot": "migration-work/screenshot.png",
   "html": {
     "filePath": "migration-work/cleaned.html"
@@ -22,7 +23,40 @@
     "canonical": "https://www.academy.com/"
   },
   "images": {
-    "count": 0,
-    "mapping": {}
+    "count": 35,
+    "mapping": {
+      "content/images/carousel-1-easter.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt1e30d4ce2fad149a/69b03d71c1628e0008bc5eba/2card_carousel_1_storyname.png",
+      "content/images/carousel-2-backyard.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt728ff2fea04bf36c/69b03d71f2eef0000852707d/2card_carousel_2_storyname.png",
+      "content/images/carousel-3-easter-look.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/bltd351a1a04ec0f7c9/69b03d71061d260008c2c1d7/2card_carousel_3_storyname.png",
+      "content/images/carousel-4-level-up.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blte71789cbc706b87f/69b03d72abcbac0008be55e4/2card_carousel_4_storyname.png",
+      "content/images/banner-buy-more.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt09ca13d839ab51a4/69b85c19cdc88b34b53c8c55/Banner_BuyMore.png",
+      "content/images/banner-credit-card.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt94eecc01c3cb7ab4/69baae4900c6f0b4df874f0b/banner_marcc_noncardholder.png",
+      "content/images/running-nike.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt7cb09e39721a2826/699e4b8b7c32757d442ae783/runningshoes_nike.png",
+      "content/images/running-asics.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt25eb6a14dfcc0c71/699f33b9b9f0f2113e3237c7/runmonth_3_asics.png",
+      "content/images/running-brooks.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt774ec487f0585eae/699f33b979cd52ea7ad19113/runmonth_2_brooks.png",
+      "content/images/running-adidas.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt6cb86596d9e5ba94/699f33bb7faa5f4f82ff4b4c/runmonth_5_adidas.png",
+      "content/images/running-newbalance.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt28ba2ac7323b87e0/699f33b9883c6349da4d84e8/runmonth_4_newbalance.png",
+      "content/images/banner-fit-clinics.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt5bfb1d46973cef3d/699f33b679cd523966d1910f/banner_fitclinics.png",
+      "content/images/new-finds-birkenstock.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/bltec4ba6ad9e7c37d0/69b03e65c52c3d0008cb616c/NewFinds_Birkenstock.png",
+      "content/images/new-finds-owala.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt2096b0ed22f6e202/69b418c8675afc010e0a8eda/NewFinds_Owala-Update.png",
+      "content/images/new-finds-turtlebox.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt7b8e9d9baf43fc7f/69b03e6500e17800089b9881/NewFinds_Turtlebox.png",
+      "content/images/banner-nike-soccer.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt8f479e5c77190384/69b419be4c6f5faf52389c6b/banner_nikesoccer_usa.png",
+      "content/images/banner-clearance.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt09f3ef8c0228b385/69b03caa7189140008fbe226/Banner_Clearance.png",
+      "content/images/banner-workwear.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt08e3a5c53bead437/69b301ba1bca04039deaad40/Banner_Workwear_Update.png",
+      "content/images/card-ariat.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt35601d30e7e2b966/69b0409c9240ad00084e85dc/Card_work_Ariat.png",
+      "content/images/card-carhartt.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt33e97f6b483f8abc/69b0409cabcbac0008be55fe/Card_work_Carhartt.png",
+      "content/images/logo-brazos.svg": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt717efe93cde3eb86/69b046bfc52c3d0008cb61b0/Brazos.svg",
+      "content/images/logo-levis.svg": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt4db18ce6cc49d311/69b046bfa2ab990008f356dd/Levis.svg",
+      "content/images/logo-wolverine.svg": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/bltfda64be33f45c99d/69b046bf00b88e0008c95f91/Wolverine.svg",
+      "content/images/logo-wrangler.svg": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt6f148ab863b0ce89/69b046bfa2ab990008f356db/Wrangler.svg",
+      "content/images/logo-justin.svg": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt3b4ad4223cc19487/69b046bf59ccea000816e035/Justin.svg",
+      "content/images/fans-mlb.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt4cfeaa3836e595b7/69b048fbafcf450008d2479e/trending_for_fans_Styles.png",
+      "content/images/baseball-hero.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt509352775d7878be/69b03f8d21e8760008bd19ff/hb_baseball-m.png",
+      "content/images/banner-rewards.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/bltc96d61445a298dad/69b8859650ca69ff03d3ed4e/banner_myAcademyRewards_base.png",
+      "content/images/rewards-creditcards.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt20e5e310dfedf6a6/69af14f77189140008fbd9c5/myacademyrewards_creditcards.png",
+      "content/images/rewards-lifestyle.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt185205bd0de729f3/69af14f721e8760008bd1191/myacademyrewards_lifestylewtext.png",
+      "content/images/app-icon.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/blt798da6602cc25725/698c6f819009430947f8c41c/appdownload_appicon.png",
+      "content/images/undefeatable-prices.png": "https://images.contentstack.io/v3/assets/blt964243cdd7810dea/bltbe07448eadd7c05f/69b888a1ee827af566204b4e/undefeatableprices.png"
+    }
   }
 }
