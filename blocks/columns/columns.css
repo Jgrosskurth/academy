@@ -18,6 +18,13 @@
   display: block;
 }
 
+/* SVG icons in columns (play video, etc.) — constrain size */
+.columns img[src*=".svg"] {
+  max-height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
 .columns h2,
 .columns h3 {
   color: var(--color-brand-navy);
@@ -32,6 +39,24 @@
   color: var(--color-text);
   font-size: var(--body-font-size-xs);
   line-height: 1.4;
+  margin: 2px 0;
+}
+
+/* text-only columns (no images) — promo card styling */
+.columns > div:not(:has(img)) > div {
+  background-color: var(--color-yellow-light);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.columns > div:not(:has(img)) h3 {
+  font-size: var(--heading-font-size-xl);
+  color: var(--color-brand-navy);
+  margin: 0 0 4px;
+}
+
+.columns > div:not(:has(img)) p {
+  font-size: var(--body-font-size-xs);
   margin: 2px 0;
 }
 

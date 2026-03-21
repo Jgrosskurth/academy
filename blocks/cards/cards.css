@@ -64,8 +64,37 @@
   max-height: 160px;
 }
 
-/* cards with only text (no images) - brand logo / link cards */
-.cards > ul:has(> li:not(:has(.cards-card-image))) {
+/* SVG icon cards (play video, etc.) — constrain icon size */
+.cards > ul > li img[src*=".svg"] {
+  max-height: 60px;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* text-only cards — yellow pill styling (applied to individual items) */
+.cards > ul > li:not(:has(.cards-card-image)) {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  background-color: var(--color-yellow);
+  border: none;
+  border-radius: 20px;
+}
+
+.cards > ul > li:not(:has(.cards-card-image)) .cards-card-body {
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.cards > ul > li:not(:has(.cards-card-image)) .cards-card-body a {
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: var(--body-font-size-xs);
+}
+
+/* all-text card lists — horizontal scroll (uses JS class) */
+.cards.text-only > ul {
   display: flex;
   overflow-x: auto;
   gap: 8px;
@@ -74,30 +103,22 @@
   padding-bottom: 4px;
 }
 
-.cards > ul:has(> li:not(:has(.cards-card-image)))::-webkit-scrollbar {
+.cards.text-only > ul::-webkit-scrollbar {
   display: none;
 }
 
-.cards > ul > li:not(:has(.cards-card-image)) {
-  display: flex;
-  align-items: center;
-  min-height: 36px;
-  background-color: var(--color-yellow);
-  border: none;
-  border-radius: 20px;
+.cards.text-only > ul > li {
   flex: 0 0 auto;
 }
 
-.cards > ul > li:not(:has(.cards-card-image)) .cards-card-body {
-  padding: 8px 14px;
-  text-align: center;
+.cards.text-only > ul > li .cards-card-body {
   white-space: nowrap;
 }
 
-.cards > ul > li:not(:has(.cards-card-image)) .cards-card-body a {
-  color: var(--color-black);
-  font-weight: 700;
-  font-size: var(--body-font-size-xs);
+/* mixed card lists — keep grid, style text-only items (uses JS class) */
+.cards.mixed > ul > li:not(:has(.cards-card-image)) {
+  border-radius: 12px;
+  justify-content: center;
 }
 
 /* stylelint-disable no-descending-specificity -- section variant overrides follow base styles */
@@ -150,6 +171,20 @@
   font-size: 9px;
 }
 
+/* text-only cards in light-gray — override to keep yellow pill scroll */
+.light-gray .cards.text-only > ul {
+  display: flex;
+  overflow-x: auto;
+}
+
+.light-gray .cards.text-only > ul > li {
+  background-color: var(--color-yellow);
+  border: none;
+  border-radius: 20px;
+  box-shadow: none;
+  flex: 0 0 auto;
+}
+
 /* stylelint-enable no-descending-specificity */
 
 @media (width >= 600px) {
@@ -165,9 +200,8 @@
     font-size: var(--body-font-size-s);
   }
 
-  /* brand cards: show in a single row */
-  .cards > ul:has(> li:not(:has(.cards-card-image))) {
-    grid-template-columns: repeat(5, 1fr);
+  .cards.text-only > ul {
+    gap: 10px;
   }
 }
 

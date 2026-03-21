@@ -14,4 +14,11 @@ export default function decorate(block) {
   });
   ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.replaceChildren(ul);
+
+  /* classify card lists by content type */
+  const items = [...ul.children];
+  const hasImages = items.some((li) => li.querySelector('.cards-card-image'));
+  const allImages = items.every((li) => li.querySelector('.cards-card-image'));
+  if (!hasImages) block.classList.add('text-only');
+  else if (!allImages) block.classList.add('mixed');
 }
