@@ -397,7 +397,18 @@ main .section.academy-red p {
 
 /* stylelint-disable no-descending-specificity -- content pattern overrides after variant rules */
 
-/* section heading + "Shop All" link pattern */
+/* section heading + "Shop All" link pattern — inline like academy.com */
+main > .section .default-content-wrapper h2,
+main > .section .default-content-wrapper h3 {
+  display: inline;
+}
+
+main > .section .default-content-wrapper h2 + p,
+main > .section .default-content-wrapper h3 + p {
+  display: inline;
+  margin-left: 8px;
+}
+
 main > .section .default-content-wrapper h2 + p a:any-link,
 main > .section .default-content-wrapper h3 + p a:any-link {
   font-size: var(--body-font-size-xs);

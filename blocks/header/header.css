@@ -69,16 +69,17 @@ header nav a:any-link {
 /* Brand */
 header .nav-brand {
   grid-area: brand;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
-  line-height: 1;
+  line-height: 0;
 }
 
 header .nav-brand a {
-  color: var(--color-brand-blue);
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 24px;
+  display: inline-block;
+  line-height: 0;
+}
+
+header .nav-brand img {
+  height: 32px;
+  width: auto;
 }
 
 /* stylelint-enable no-descending-specificity */
@@ -170,14 +171,14 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* Search bar */
 header .nav-search {
   grid-area: search;
-  padding: 4px 0 0;
+  padding: 6px 0 0;
 }
 
 header .nav-search-form {
   display: flex;
   align-items: center;
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey);
   border-radius: 4px;
   overflow: hidden;
 }

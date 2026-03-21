@@ -117,10 +117,14 @@ export default async function decorate(block) {
 
   const navBrand = nav.querySelector('.nav-brand');
   if (navBrand) {
-    const brandLink = navBrand.querySelector('.button');
+    const brandLink = navBrand.querySelector('a');
     if (brandLink) {
       brandLink.className = '';
-      brandLink.closest('.button-container').className = '';
+      const wrapper = brandLink.closest('.button-container');
+      if (wrapper) wrapper.className = '';
+      // Replace text with Academy logo
+      brandLink.innerHTML = '<img src="/icons/academy-logo.svg" alt="Academy Sports + Outdoors" width="43" height="32" loading="eager">';
+      brandLink.setAttribute('aria-label', 'Academy Sports + Outdoors home');
     }
   }
 
