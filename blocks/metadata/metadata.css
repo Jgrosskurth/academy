@@ -1,0 +1,4 @@
+/* Metadata block — contains page-level meta information, not for display */
+.metadata-container {
+  display: none;
+}

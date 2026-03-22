@@ -192,6 +192,9 @@ function buildCardPanels(main) {
       scroll.className = 'card-panels-scroll';
       panels.forEach((p) => scroll.append(p));
       section.prepend(scroll);
+    } else if (panels.length === 1) {
+      // Single panel — restore children back to section (no scroll wrapper needed)
+      while (panels[0].firstChild) section.append(panels[0].firstChild);
     }
   });
 }
