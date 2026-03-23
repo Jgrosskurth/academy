@@ -3,10 +3,10 @@
    accordion sections on mobile, helper links, social icons, legal bar */
 
 footer {
-  background-color: var(--color-white);
+  background-color: var(--color-brand-blue);
   font-family: var(--body-font-family);
-  color: var(--color-text);
-  border-top: 1px solid var(--color-grey);
+  color: var(--color-white);
+  border-top: none;
 }
 
 footer .footer > div {
@@ -16,7 +16,7 @@ footer .footer > div {
 
 footer .footer p {
   margin: 0;
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 /* ============================================================
@@ -30,10 +30,10 @@ footer .section h3 {
   font-family: var(--body-font-family);
   font-size: 16px;
   font-weight: 400;
-  color: var(--color-brand-navy);
+  color: var(--color-white);
   margin: 0;
   padding: 16px 0;
-  border-bottom: 1px solid var(--color-grey);
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
 }
 
 footer .section ul {
@@ -48,7 +48,7 @@ footer .section li {
 
 /* stylelint-disable no-descending-specificity */
 footer .section a:any-link {
-  color: var(--color-brand-blue);
+  color: var(--color-white);
   font-family: var(--body-font-family);
   font-size: 14px;
   font-weight: 400;
@@ -58,7 +58,7 @@ footer .section a:any-link {
 }
 
 footer .section a:hover {
-  color: var(--color-brand-blue-dark);
+  color: rgb(255 255 255 / 80%);
   text-decoration: underline;
 }
 
@@ -81,7 +81,7 @@ footer .footer-accordion-toggle::after {
   transform: translateY(-50%);
   font-size: 20px;
   font-weight: 300;
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 footer .footer-accordion-toggle[aria-expanded='true']::after {
@@ -116,16 +116,16 @@ footer .footer-app li {
 footer .footer-app a {
   display: inline-block;
   padding: 8px 16px;
-  border: 1px solid var(--color-grey-border);
+  border: 1px solid rgb(255 255 255 / 40%);
   border-radius: 4px;
   font-size: 13px;
   white-space: nowrap;
-  color: var(--color-text);
+  color: var(--color-white);
   transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 footer .footer-app a:hover {
-  background-color: var(--color-grey-light);
+  background-color: rgb(255 255 255 / 10%);
   text-decoration: none;
 }
 
@@ -133,7 +133,7 @@ footer .footer-app a:hover {
    Links section — helper links + social icons
    ============================================================ */
 footer .footer-links {
-  border-top: 1px solid var(--color-grey);
+  border-top: 1px solid rgb(255 255 255 / 20%);
   margin-top: 8px;
   padding-top: 16px;
 }
@@ -153,7 +153,7 @@ footer .footer-links .default-content-wrapper > ul:first-of-type a {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: var(--color-text);
+  color: var(--color-white);
 }
 
 /* Social icons (second ul) */
@@ -172,7 +172,7 @@ footer .footer-links .footer-social-icon {
    Legal section — legal links + copyright
    ============================================================ */
 footer .footer-legal {
-  border-top: 1px solid var(--color-grey);
+  border-top: 1px solid rgb(255 255 255 / 20%);
   padding-top: 16px;
   padding-bottom: 24px;
 }
@@ -191,14 +191,14 @@ footer .footer-legal li {
 
 footer .footer-legal li a {
   font-size: 10px;
-  color: var(--color-brand-blue);
+  color: rgb(255 255 255 / 80%);
 }
 
 /* Copyright text */
 footer .footer-legal p {
   font-size: 8px;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: rgb(255 255 255 / 60%);
 }
 
 /* ============================================================
@@ -223,7 +223,7 @@ footer .footer-legal p {
     text-transform: uppercase;
     padding: 0 0 12px;
     border-bottom: none;
-    color: var(--color-brand-navy);
+    color: var(--color-white);
   }
 
   /* Remove accordion indicator on desktop */
@@ -280,7 +280,7 @@ footer .footer-legal p {
   footer .footer-legal li::after {
     content: '|';
     margin: 0 8px;
-    color: var(--color-grey-border);
+    color: rgb(255 255 255 / 40%);
     font-size: 10px;
   }
 

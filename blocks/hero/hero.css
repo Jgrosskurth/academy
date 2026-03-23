@@ -105,13 +105,17 @@
   main > .section.hero-container:has(> .default-content-wrapper) {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    gap: 0;
-    padding: 0;
+    gap: 28px;
+    max-width: var(--section-max-width);
+    margin: 16px auto;
+    padding: 0 32px;
   }
 
   main > .section.hero-container > .hero-wrapper {
     max-width: unset;
     padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
   main > .section.hero-container > .default-content-wrapper {
@@ -125,5 +129,6 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 8px;
   }
 }
