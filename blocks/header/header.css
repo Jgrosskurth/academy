@@ -46,7 +46,7 @@ header nav[aria-expanded='true'] {
     align-items: center;
     gap: 0 24px;
     max-width: var(--section-max-width);
-    padding: 12px 32px;
+    padding: 40px 32px 8px;
   }
 
   header nav[aria-expanded='true'] {

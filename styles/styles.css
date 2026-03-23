@@ -76,6 +76,7 @@
     --heading-font-size-s: 16px;
     --heading-font-size-xs: 14px;
     --section-padding: 0 32px;
+    --nav-height: 112px;
   }
 }
 
@@ -271,7 +272,7 @@ main img {
 /* sections */
 main > .section {
   margin: 0;
-  padding: 16px 0;
+  padding: 8px 0;
 }
 
 main > .section > div {
@@ -368,6 +369,7 @@ main .section.navy a:any-link {
 main .section.yellow {
   background-color: var(--color-yellow);
   color: var(--color-black);
+  padding: 0;
 }
 
 main .section.yellow h1,
@@ -490,10 +492,23 @@ main > .section > .default-content-wrapper > p > a > img {
   object-fit: cover;
 }
 
-/* dark section promo banners — edge-to-edge on mobile */
+/* dark section promo banners — edge-to-edge */
 main > .section.dark > .default-content-wrapper > p > a > img {
-  border-radius: 8px;
+  border-radius: 0;
   max-height: none;
+}
+
+/* dark/yellow sections with only a banner image — remove padding for edge-to-edge */
+main > .section.dark:has(> .default-content-wrapper:only-child),
+main > .section.yellow:has(> .default-content-wrapper:only-child) {
+  padding: 0;
+}
+
+main > .section.dark > .default-content-wrapper > p > a > img,
+main > .section.dark > .default-content-wrapper > p > img,
+main > .section.yellow > .default-content-wrapper > p > a > img,
+main > .section.yellow > .default-content-wrapper > p > img {
+  border-radius: 0;
 }
 
 /* hide empty promo links (no image, no text) */

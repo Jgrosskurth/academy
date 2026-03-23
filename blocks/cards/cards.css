@@ -211,6 +211,11 @@
     gap: 10px;
   }
 
+  /* 5-column layout when cards block has exactly 5 items (e.g. running shoe brands) */
+  .cards > ul:has(> li:nth-child(5):last-child) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   .cards > ul > li img {
     max-height: 220px;
   }
