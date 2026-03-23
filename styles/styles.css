@@ -472,8 +472,9 @@ main > .section.cards-container .default-content-wrapper h3 + p a:any-link {
   }
 
   .card-panel {
-    flex: 0 0 340px;
-    max-width: 400px;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
   }
 
   .card-panel .cards > ul > li img {

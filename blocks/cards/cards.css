@@ -218,6 +218,11 @@
     gap: 10px;
   }
 
+  /* 3-column layout for exactly 3 cards */
+  .cards > ul:has(> li:nth-child(3):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   /* 5-column layout for exactly 5 cards (running shoe brands, brand logos, etc.) */
   .cards > ul:has(> li:nth-child(5):last-child) {
     grid-template-columns: repeat(5, 1fr);

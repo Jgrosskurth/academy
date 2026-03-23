@@ -12,36 +12,48 @@
 
 .hero {
   position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* image-only hero (text overlay hidden by JS) — image drives sizing */
+.hero picture {
+  display: block;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* text-overlay mode — image positioned absolutely behind text */
+.hero:has(> div:last-child:not([aria-hidden])) {
   padding: 24px 16px;
   min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
 }
 
-/* background image pattern - picture is positioned absolutely over entire hero */
-.hero picture {
+.hero:has(> div:last-child:not([aria-hidden])) picture {
   position: absolute;
   z-index: 0;
   inset: 0;
 }
 
-.hero img {
+.hero:has(> div:last-child:not([aria-hidden])) img {
   object-fit: cover;
-  width: 100%;
   height: 100%;
 }
 
-/* first div holds the picture - collapse it so text overlays */
-.hero > div:first-child {
+.hero:has(> div:last-child:not([aria-hidden])) > div:first-child {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-/* text content sits above the image */
-.hero > div:last-child {
+.hero:has(> div:last-child:not([aria-hidden])) > div:last-child {
   position: relative;
   z-index: 1;
   max-width: 480px;
@@ -75,7 +87,7 @@
 }
 
 @media (width >= 600px) {
-  .hero {
+  .hero:has(> div:last-child:not([aria-hidden])) {
     min-height: 400px;
     padding: 48px 32px;
   }
@@ -87,12 +99,12 @@
 }
 
 @media (width >= 900px) {
-  .hero {
+  .hero:has(> div:last-child:not([aria-hidden])) {
     min-height: 500px;
     padding: 64px 48px;
   }
 
-  .hero > div:last-child {
+  .hero:has(> div:last-child:not([aria-hidden])) > div:last-child {
     max-width: 560px;
   }
 
@@ -104,7 +116,7 @@
   /* 2-column hero layout: hero banner (left) + promo content (right) */
   main > .section.hero-container:has(> .default-content-wrapper) {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 28px;
     max-width: var(--section-max-width);
     margin: 16px auto;
@@ -114,6 +126,7 @@
   main > .section.hero-container > .hero-wrapper {
     max-width: unset;
     padding: 0;
+    margin: 0;
     border-radius: 8px;
     overflow: hidden;
   }
