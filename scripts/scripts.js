@@ -263,6 +263,13 @@ function customizeHomepageSections(main) {
     // Brand logos: Looking for More Brands
     if (isCards && headingText.includes('LOOKING FOR MORE BRANDS')) {
       section.classList.add('banner-only-cards', 'brand-logos');
+      // Swap Wolverine logo with Ariat
+      section.querySelectorAll('img').forEach((img) => {
+        if (img.alt && img.alt.toLowerCase().includes('wolverine')) {
+          img.src = 'https://images.contentstack.io/v3/assets/blt964243cdd7810dea/bltae41a11634a40ee8/69bc2aee3002769f9ed95454/Ariat.png';
+          img.alt = 'Ariat brand logo';
+        }
+      });
     }
   });
 }
