@@ -339,9 +339,14 @@ header nav .nav-sections .default-content-wrapper > ul > li > ul {
 header .nav-tools {
   display: block;
   background: var(--color-brand-blue);
+  color: var(--color-white);
   grid-column: 1 / -1;
   margin: 8px -16px -8px;
   padding: 0 16px;
+}
+
+header .nav-tools a:any-link {
+  color: var(--color-white);
 }
 
 header .nav-tools .default-content-wrapper {
