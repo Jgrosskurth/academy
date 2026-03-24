@@ -58,14 +58,14 @@
 
 .cards > ul > li img {
   width: 100%;
-  aspect-ratio: auto;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   background-color: var(--color-white);
-  max-height: 160px;
 }
 
-/* SVG icon cards (play video, etc.) — constrain icon size */
+/* SVG images — not forced square, constrain icon size */
 .cards > ul > li img[src*=".svg"] {
+  aspect-ratio: auto;
   max-height: 60px;
   width: auto;
   margin: 0 auto;
@@ -133,7 +133,6 @@
 /* cards with small icon images (benefits/rewards cards) */
 .light-gray .cards > ul {
   gap: 8px;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .light-gray .cards > ul > li {
@@ -229,7 +228,8 @@
   }
 
   .cards > ul > li img {
-    max-height: 280px;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
   }
 
   .light-gray .cards > ul > li {
@@ -263,9 +263,9 @@
     border-radius: 12px;
   }
 
-  .cards > ul:has(> li:nth-child(5):last-child) > li img {
+  .cards > ul:has(> li:nth-child(5):last-child) > li img:not([src*=".svg"]) {
     max-height: 320px;
     border-radius: 12px;
-    object-fit: cover;
+    object-fit: contain;
   }
 }

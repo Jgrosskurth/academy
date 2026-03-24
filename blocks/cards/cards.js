@@ -12,7 +12,14 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  ul.querySelectorAll('picture > img').forEach((img) => {
+    // Upgrade Scene7 thumbnail URLs to larger images for better quality
+    let { src } = img;
+    if (src.includes('scene7.com') && /[?&]wid=\d+/.test(src)) {
+      src = src.replace(/([?&])wid=\d+/, '$1wid=600').replace(/([?&])hei=\d+/, '$1hei=600');
+    }
+    img.closest('picture').replaceWith(createOptimizedPicture(src, img.alt, false, [{ width: '750' }]));
+  });
   block.replaceChildren(ul);
 
   /* classify card lists by content type */

@@ -458,7 +458,8 @@ main > .section.cards-container .default-content-wrapper h3 + p a:any-link {
 }
 
 .card-panel .cards > ul > li img {
-  max-height: 120px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
 
 .card-panel .cards .cards-card-body h3 {
@@ -478,7 +479,8 @@ main > .section.cards-container .default-content-wrapper h3 + p a:any-link {
   }
 
   .card-panel .cards > ul > li img {
-    max-height: 160px;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
   }
 }
 
