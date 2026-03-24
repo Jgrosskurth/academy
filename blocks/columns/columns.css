@@ -62,31 +62,34 @@
 /* multi-column layout for 3+ columns (app/credit card/SMS section) */
 .columns > div:has(> :nth-child(3)) {
   grid-template-columns: 1fr;
-  gap: 8px;
+  gap: 16px;
 }
 
 .columns > div:has(> :nth-child(3)) > div {
   text-align: center;
   border: 1px solid var(--color-grey);
   border-radius: 8px;
-  padding: 12px 8px;
+  padding: 16px 12px;
 }
 
 .columns > div:has(> :nth-child(3)) img {
-  max-height: 36px;
+  max-height: 48px;
   width: auto;
-  margin: 0 auto 4px;
+  margin: 0 auto 8px;
   display: block;
   object-fit: contain;
 }
 
 .columns > div:has(> :nth-child(3)) h3 {
-  font-size: 11px;
-  margin: 2px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-brand-blue);
+  margin: 4px 0;
 }
 
 .columns > div:has(> :nth-child(3)) p {
-  font-size: 10px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
 }
 
 /* image-only columns in 3-col layout — show full banner */
@@ -124,18 +127,18 @@
 
   /* 3-column info cards — larger at desktop */
   .columns > div:has(> :nth-child(3)) > div {
-    padding: 20px 16px;
+    padding: 24px 20px;
   }
 
   .columns > div:has(> :nth-child(3)) img {
-    max-height: 48px;
+    max-height: 56px;
   }
 
   .columns > div:has(> :nth-child(3)) h3 {
-    font-size: var(--body-font-size-s);
+    font-size: 24px;
   }
 
   .columns > div:has(> :nth-child(3)) p {
-    font-size: var(--body-font-size-xs);
+    font-size: 20px;
   }
 }

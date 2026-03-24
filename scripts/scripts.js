@@ -200,6 +200,74 @@ function buildCardPanels(main) {
 }
 
 /**
+ * Marks homepage sections for hiding or banner-only display.
+ * Runs after decoration to identify sections by content.
+ * @param {Element} main The main element
+ */
+function customizeHomepageSections(main) {
+  const sections = [...main.querySelectorAll(':scope > .section')];
+  let firstDark = true;
+
+  sections.forEach((section) => {
+    const imgAlts = [...section.querySelectorAll('img')].map((i) => i.alt || '').join(' ');
+    const headingText = [...section.querySelectorAll('h2, h3')].map((h) => h.textContent).join(' ');
+    const isDark = section.classList.contains('dark');
+    const isYellow = section.classList.contains('yellow');
+    const isHero = section.classList.contains('hero-container');
+    const isColumns = section.classList.contains('columns-container');
+    const isCards = section.classList.contains('cards-container');
+
+    // Hide: Buy More Save More (first dark section, not a hero)
+    if (isDark && !isHero && firstDark) {
+      section.classList.add('homepage-hidden');
+      firstDark = false;
+      return;
+    }
+    if (isDark && !isHero) firstDark = false;
+
+    // Hide: Expect The Unexpected
+    if (isDark && !isHero && imgAlts.includes('Expect')) {
+      section.classList.add('homepage-hidden');
+    }
+
+    // Hide: Clearance banner
+    if (isYellow && imgAlts.includes('Clearance')) {
+      section.classList.add('homepage-hidden');
+    }
+
+    // Hide: Gear That Goes The Distance (dark hero)
+    if (isDark && isHero) {
+      section.classList.add('homepage-hidden');
+    }
+
+    // Hide: Opening Day / Games Start This Week
+    if (isColumns && headingText.includes('Opening Day')) {
+      section.classList.add('homepage-hidden');
+    }
+
+    // Banner-only: Running brands (Nike/ASICS/Brooks section with Run Month banner)
+    if (isCards && imgAlts.includes('Run Month')) {
+      section.classList.add('banner-only-cards');
+    }
+
+    // Banner-only: Birkenstock/Owala/Turtlebox lifestyle cards
+    if (isCards && headingText.includes('Color Drop')) {
+      section.classList.add('banner-only-cards');
+    }
+
+    // Banner-only: Ariat/Carhartt columns
+    if (isColumns && (imgAlts.includes('ARIAT') || imgAlts.includes('Carhartt'))) {
+      section.classList.add('banner-only-columns');
+    }
+
+    // Brand logos: Looking for More Brands
+    if (isCards && headingText.includes('LOOKING FOR MORE BRANDS')) {
+      section.classList.add('banner-only-cards');
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -212,6 +280,7 @@ export function decorateMain(main) {
   decorateBlocks(main);
   decorateButtons(main);
   buildCardPanels(main);
+  customizeHomepageSections(main);
 
   // Post-decoration: hide sections with no meaningful visible content
   main.querySelectorAll(':scope > .section').forEach((section) => {

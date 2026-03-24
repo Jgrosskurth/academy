@@ -195,7 +195,7 @@
 
 @media (width >= 600px) {
   .cards > ul {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .cards .cards-card-body {
@@ -213,7 +213,7 @@
 
 @media (width >= 900px) {
   .cards > ul {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 

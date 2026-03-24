@@ -391,6 +391,31 @@ main .section.academy-red p {
   color: var(--color-white);
 }
 
+/* homepage section hiding */
+main > .section.homepage-hidden {
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* banner-only cards — hide card body text (titles, descriptions, links) */
+main > .section.banner-only-cards .cards-card-body {
+  display: none;
+}
+
+/* banner-only columns — hide text, keep images */
+main > .section.banner-only-columns .columns h3 {
+  display: none;
+}
+
+main > .section.banner-only-columns .columns > div > div > p {
+  display: none;
+}
+
+main > .section.banner-only-columns .columns > div > div > p:has(img) {
+  display: block;
+}
+
 @media (width >= 900px) {
   main > .section > div {
     padding: var(--section-padding);
